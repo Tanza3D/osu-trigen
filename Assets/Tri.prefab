@@ -98,8 +98,8 @@ MonoBehaviour:
   TriPrefab: {fileID: 5048106504107860594}
   YSpeedMin: 1
   YSpeedMax: 5
-  OpacityMin: 0.03
-  OpacityMax: 0.3
+  OpacityMin: 0
+  OpacityMax: 0.1
   ScaleMin: 0.2
   ScaleMax: 2.3
   FinalSpeed: 0
@@ -107,6 +107,12 @@ MonoBehaviour:
   FinalOpacity: 0
   StartX: 0
   StartY: 0
+  S_YSpeedMin: {fileID: 0}
+  S_YSpeedMax: {fileID: 0}
+  S_OpacityMin: {fileID: 0}
+  S_OpacityMax: {fileID: 0}
+  S_ScaleMin: {fileID: 0}
+  S_ScaleMax: {fileID: 0}
 --- !u!114 &-1898065560938345773
 MonoBehaviour:
   m_ObjectHideFlags: 0

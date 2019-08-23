@@ -10,11 +10,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -24,6 +19,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -54,23 +50,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10794}
+      Script: {instanceID: 10788}
     - Class: 114
-      Script: {instanceID: 10962}
+      Script: {instanceID: 10956}
     - Class: 114
-      Script: {instanceID: 11002}
+      Script: {instanceID: 10996}
     - Class: 114
-      Script: {instanceID: 11404}
+      Script: {instanceID: 11398}
+    - Class: 114
+      Script: {instanceID: 11546}
+    - Class: 114
+      Script: {instanceID: 12010}
+    - Class: 114
+      Script: {instanceID: 12086}
     - Class: 114
       Script: {instanceID: 12262}
     - Class: 114
       Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 13364}
-    - Class: 114
-      Script: {instanceID: 13372}
-    - Class: 114
-      Script: {instanceID: 16210}
+      Script: {instanceID: 12672}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -276,6 +274,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 3877c9b7ea7cf3b9d85f6989ad47ee15
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TriangleSpawner
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -354,6 +358,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HueChanger
+  - hash:
+      serializedVersion: 2
       Hash: e1300922cc039f41ab46a47f4cb05898
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -376,6 +386,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: cde42f564fe52b7835f37fcfc7710384
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Triangle
   - hash:
       serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
@@ -508,25 +524,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 879f1f827695e33517a5562e2fd80ceb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Triangle
-  - hash:
-      serializedVersion: 2
-      Hash: e097ac58ab97ca65b01229a8948cb648
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TriangleSpawner
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HueChanger
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/osutrigen/DevBuild/b1.0/osu!trigen.exe
+  playerPath: C:/osutrigen/DevBuild/b1.0.1/osutrigen.exe
