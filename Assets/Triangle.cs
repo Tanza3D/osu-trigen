@@ -26,6 +26,7 @@ public class Triangle : MonoBehaviour
     
     public void Init()
     {
+        GetComponent<Renderer>().material.color = Random.ColorHSV(1f, 0f, 0f, 0f, 0f, 1f);
         YSpeedMin  =  S_YSpeedMin.value;
         YSpeedMax  =  S_YSpeedMax.value;
         OpacityMin =  S_OpacityMin.value;
