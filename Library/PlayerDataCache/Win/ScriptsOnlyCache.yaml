@@ -1,9 +1,12 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FCP_ExampleScript
+    - FlexibleColorPicker
     - HueChanger
     - Triangle
     - TriangleSpawner
+    - UIHideScript
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -15,14 +18,22 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/osu!trigen.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -56,9 +67,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10996}
     - Class: 114
+      Script: {instanceID: 11300}
+    - Class: 114
       Script: {instanceID: 11398}
     - Class: 114
       Script: {instanceID: 11546}
+    - Class: 114
+      Script: {instanceID: 11576}
+    - Class: 114
+      Script: {instanceID: 11772}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11970}
     - Class: 114
       Script: {instanceID: 12010}
     - Class: 114
@@ -66,9 +87,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12262}
     - Class: 114
+      Script: {instanceID: 12600}
+    - Class: 114
+      Script: {instanceID: 12626}
+    - Class: 114
       Script: {instanceID: 12636}
     - Class: 114
+      Script: {instanceID: 12654}
+    - Class: 114
       Script: {instanceID: 12672}
+    - Class: 114
+      Script: {instanceID: 13882}
+    - Class: 114
+      Script: {instanceID: 13884}
+    - Class: 114
+      Script: {instanceID: 35336}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -524,7 +557,25 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 7ecfd6cfdb7409501cddb011ec65dd46
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlexibleColorPicker
+  - hash:
+      serializedVersion: 2
+      Hash: 47e3afae76e12696af0f0c304c8c1340
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FCP_ExampleScript
+  - hash:
+      serializedVersion: 2
+      Hash: 35ec97400fd57993e189a9a878318af3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIHideScript
   platform: 5
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/osutrigen/DevBuild/b1.0.1/osutrigen.exe
+  - Assets/Scenes/osu!trigen.unity
+  playerPath: C:/Users/hubst/Documents/!Trigen/b1.3/osutrigen.exe
