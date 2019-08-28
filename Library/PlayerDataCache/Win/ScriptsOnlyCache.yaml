@@ -9,13 +9,10 @@ ScriptsOnlyBuild:
     - UIHideScript
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -73,35 +70,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11546}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11548}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 12010}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12262}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 12626}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12636}
+      Script: {instanceID: 12604}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12630}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 13882}
+      Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 13884}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 35336}
+      Script: {instanceID: 12694}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -313,6 +310,12 @@ ScriptsOnlyBuild:
     className: TriangleSpawner
   - hash:
       serializedVersion: 2
+      Hash: 7ecfd6cfdb7409501cddb011ec65dd46
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlexibleColorPicker
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -425,6 +428,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Triangle
+  - hash:
+      serializedVersion: 2
+      Hash: 35ec97400fd57993e189a9a878318af3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIHideScript
   - hash:
       serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
@@ -553,29 +562,17 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: c3d3430df9e3ea95e3e3d587961390fb
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 7ecfd6cfdb7409501cddb011ec65dd46
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FlexibleColorPicker
-  - hash:
-      serializedVersion: 2
       Hash: 47e3afae76e12696af0f0c304c8c1340
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FCP_ExampleScript
   - hash:
       serializedVersion: 2
-      Hash: 35ec97400fd57993e189a9a878318af3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIHideScript
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: PlayableTrack
   platform: 5
   scenePathNames:
   - Assets/Scenes/osu!trigen.unity
-  playerPath: C:/Users/hubst/Documents/!Trigen/b1.3/osutrigen.exe
+  playerPath: C:/Users/hubst/Documents/!Trigen/b1.3.1/osutrigen.exe
