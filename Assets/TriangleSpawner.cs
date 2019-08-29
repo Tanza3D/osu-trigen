@@ -1,6 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
+using System.Runtime.InteropServices;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using SFB;
+using System.IO;
 
 public class TriangleSpawner : MonoBehaviour
 {
@@ -15,6 +21,7 @@ public class TriangleSpawner : MonoBehaviour
     [SerializeField] UnityEngine.UI.Slider S_OpacityMax;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMin;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMax;
+    public GameObject Savedialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,4 +50,9 @@ public class TriangleSpawner : MonoBehaviour
     void SetSlider(float value){
         SpawnSpeed = value;
     }
+   // public void SetVariables(float LoadedSS, float LoadedYSpeedMin, float LoadedYSpeedMax, float LoadedOMin, float LoadedOMax, float LoadedSMin, float LoadedSMax)
+   // {
+   //     LoadedSS = SpawnSpeed;
+   //     LoadedYSpeedMin = tri.YSpeedMin;
+   // }
 }

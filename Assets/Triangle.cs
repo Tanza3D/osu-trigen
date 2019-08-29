@@ -5,6 +5,7 @@ using UnityEngine;
 public class Triangle : MonoBehaviour
 {
     public GameObject TriPrefab;
+    public GameObject Savedialog;
     public float YSpeedMin;
     public float YSpeedMax;
     public float OpacityMin;
