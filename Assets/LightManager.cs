@@ -15,6 +15,8 @@ public class LightManager : MonoBehaviour
         {
             Switched(value);
         });
+        Light1.SetActive(true);
+        Light2.SetActive(false);
     }
 
     // Update is called once per frame

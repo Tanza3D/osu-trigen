@@ -39,7 +39,7 @@ public class Triangle : MonoBehaviour
         FinalOpacity = Random.Range(OpacityMin, OpacityMax);
         col.a = FinalOpacity;
         spRend.color = col;
-        StartX = Random.Range(-10.1f, 10.1f); //Gets X for spawn
+        StartX = Random.Range(-14.1f, 14.1f); //Gets X for spawn
         StartY = -8 ; //Sets startY to just off screen
         FinalScale = Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         FinalSpeed = Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
