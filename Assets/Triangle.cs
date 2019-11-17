@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Triangle : MonoBehaviour
 {
+    // Set the variables!
+
     public GameObject TriPrefab;
     public GameObject Savedialog;
     public float YSpeedMin;
@@ -17,6 +19,7 @@ public class Triangle : MonoBehaviour
     public float FinalOpacity;
     public float StartX;
     public float StartY;
+    public float FinalZ;
     // Sliders
     public UnityEngine.UI.Slider S_YSpeedMin;
     public UnityEngine.UI.Slider S_YSpeedMax;
@@ -36,21 +39,32 @@ public class Triangle : MonoBehaviour
         ScaleMax   =  S_ScaleMax.value;
         SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>();
         Color col = spRend.color;
-        FinalOpacity = Random.Range(OpacityMin, OpacityMax);
+        FinalOpacity = OpacityMin;
         col.a = FinalOpacity;
-        spRend.color = col;
+        spRend.color = col; 
         StartX = Random.Range(-14.1f, 14.1f); //Gets X for spawn
         StartY = -8 ; //Sets startY to just off screen
         FinalScale = Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         FinalSpeed = Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
-        transform.position = new Vector3(StartX,StartY,0); //Sets the position to StartX and StartY, sets Z to 0
+        FinalZ = FinalScale; //Sets FinalZ to Scale, so the smaller the triangles are the closer they are to the camera, closer = smaller number
+        transform.position = new Vector3(StartX,StartY,FinalZ); //Sets the position to StartX and StartY, sets Z to 0
         transform.localScale = new Vector3(FinalScale, FinalScale, 1); //Sets the scale to FinalScale
-        S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN);
-        S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX);
-        S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN);
-        S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX);
-        S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);
-        S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);
+        FinalSpeed = YSpeedMin; //YSpeedMin is connected to the slider in UI called "Triangle Speed". Variable YSpeedMax is unused but kept around for purposes of me being lazy.
+        FinalSpeed = FinalSpeed - FinalScale - (FinalScale / 1.5f); //Make it so the smaller the triangles are the faster they move by removing the size from the speed.
+        if(FinalSpeed < 0.2f)
+        {
+            FinalSpeed = 0.2f;
+        }
+        // Examples
+        //
+        // If a triangle was the size of two, and the speed was set to 8, the speed would end out as 4.
+        // Meanwhile if another triangle was set to the size of 0.2, same speed, it'd end out as 7.6
+        S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN); // adds listeners
+        S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX); // adds listeners
+        S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN); // adds listeners
+        S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX); // adds listeners
+        S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);   // adds listeners
+        S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);   // adds listeners
     }
     void Update()
     {
@@ -59,6 +73,9 @@ public class Triangle : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    // all of this stuff just sets the variables to the slider variables
+
     void SET_S_YSMIN(float value)
     {
         
