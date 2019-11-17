@@ -30,18 +30,18 @@ public class Triangle : MonoBehaviour
     
     public void Init()
     {
-        GetComponent<Renderer>().material.color = Random.ColorHSV(1f, 0f, 0f, 0f, 0f, 1f);
-        YSpeedMin  =  S_YSpeedMin.value;
-        YSpeedMax  =  S_YSpeedMax.value;
-        OpacityMin =  S_OpacityMin.value;
-        OpacityMax =  S_OpacityMax.value;
-        ScaleMin   =  S_ScaleMin.value;
-        ScaleMax   =  S_ScaleMax.value;
-        SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>();
-        Color col = spRend.color;
-        FinalOpacity = OpacityMin;
-        col.a = FinalOpacity;
-        spRend.color = col; 
+        GetComponent<Renderer>().material.color = Random.ColorHSV(1f, 0f, 0f, 0f, 0f, 1f); // Sets the triangles to random black or white, or anywhere inbetween colours.
+        YSpeedMin  =  S_YSpeedMin.value;  //more slider stuff
+        YSpeedMax  =  S_YSpeedMax.value;  //more slider stuff
+        OpacityMin =  S_OpacityMin.value; //more slider stuff
+        OpacityMax =  S_OpacityMax.value; //more slider stuff
+        ScaleMin   =  S_ScaleMin.value;   //more slider stuff
+        ScaleMax   =  S_ScaleMax.value;   //more slider stuff
+        SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>(); //Sets the spriterendererr spRend to the SpriteRenderer component.
+        Color col = spRend.color; //Sets the colour "col" to spRend.color which we set just abov ethis
+        FinalOpacity = OpacityMin; // Sets FinalOpacity to the minimum opacity.
+        col.a = FinalOpacity; // Sets col.a (colour alpha) to the FinalOpacity 
+        spRend.color = col; // Sets spRend colour to col, while your at it why not paint yourself invisible
         StartX = Random.Range(-14.1f, 14.1f); //Gets X for spawn
         StartY = -8 ; //Sets startY to just off screen
         FinalScale = Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
@@ -59,6 +59,7 @@ public class Triangle : MonoBehaviour
         //
         // If a triangle was the size of two, and the speed was set to 8, the speed would end out as 4.
         // Meanwhile if another triangle was set to the size of 0.2, same speed, it'd end out as 7.6
+       
         S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN); // adds listeners
         S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX); // adds listeners
         S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN); // adds listeners
@@ -70,7 +71,7 @@ public class Triangle : MonoBehaviour
     {
         transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
         if (transform.position.y >= 20) { 
-            Destroy(gameObject);
+            Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
         }
     }
 
