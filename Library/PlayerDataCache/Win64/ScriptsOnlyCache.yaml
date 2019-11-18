@@ -24,6 +24,14 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -38,7 +46,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
-    - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
@@ -146,6 +153,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
@@ -174,8 +183,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10520}
     - Class: 114
       Script: {instanceID: 10704}
-    - Class: 114
-      Script: {instanceID: 10726}
     - Class: 114
       Script: {instanceID: 10906}
     - Class: 114
@@ -419,7 +426,7 @@ ScriptsOnlyBuild:
     className: TriangleSpawner
   - hash:
       serializedVersion: 2
-      Hash: 7ecfd6cfdb7409501cddb011ec65dd46
+      Hash: b40c5f8122a1c8bcf8001373684b05b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlexibleColorPicker
@@ -695,7 +702,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 47e3afae76e12696af0f0c304c8c1340
+      Hash: 84b024dc5e39dfd8403903f432d80c7c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FCP_ExampleScript
@@ -705,8 +712,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 60fed068e941862d0f98cfc5ed45595f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FCP_SpriteMeshEditor
   platform: 19
   scenePathNames:
   - Assets/Scenes/intro.unity
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/b1.7/osutrigen.exe
+  playerPath: G:/! osu!trigen exports/b1.7.1/osutrigen.exe

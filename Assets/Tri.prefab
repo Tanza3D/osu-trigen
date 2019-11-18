@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5048106504107860592}
   - component: {fileID: 5048106504107860593}
   - component: {fileID: -1898065560938345773}
+  - component: {fileID: 721770064225118233}
   m_Layer: 0
   m_Name: Tri
   m_TagString: Untagged
@@ -47,7 +48,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriPrefab: {fileID: 5048106504107860594}
+  Savedialog: {fileID: 0}
   YSpeedMin: 1
   YSpeedMax: 5
   OpacityMin: 0
@@ -107,6 +108,7 @@ MonoBehaviour:
   FinalOpacity: 0
   StartX: 0
   StartY: 0
+  FinalZ: 0
   S_YSpeedMin: {fileID: 0}
   S_YSpeedMax: {fileID: 0}
   S_OpacityMin: {fileID: 0}
@@ -125,3 +127,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9add4aa5bc62041ba8a66c56af3c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &721770064225118233
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048106504107860594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6

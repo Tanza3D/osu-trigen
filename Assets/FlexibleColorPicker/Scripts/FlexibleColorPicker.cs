@@ -13,7 +13,7 @@ public class FlexibleColorPicker : MonoBehaviour {
     */
 
     //Unity connections
-    public RawImage[] pickerImages;
+    public Image[] pickerImages;
     private enum PickerType {
         Main, R, G, B, H, S, V, A, Preview, PreviewAlpha
     }
@@ -23,7 +23,13 @@ public class FlexibleColorPicker : MonoBehaviour {
     //public state
     public Color color {
         get { return this.bufferedColor.color; }
-        set { this.bufferedColor.Set(value); }
+        set {
+            this.bufferedColor.Set(value);
+            UpdateMarkers();
+            UpdateTextures();
+            UpdateHex();
+            typeUpdate = true;
+        }
     }
     public MainPickingMode mode;
     public enum MainPickingMode {
@@ -32,7 +38,7 @@ public class FlexibleColorPicker : MonoBehaviour {
 
     //private state
     private BufferedColor bufferedColor;
-    private RawImage focusedPicker;
+    private Image focusedPicker;
     private PickerType focusedPickerType;
     private MainPickingMode lastUpdatedMode;
     private bool typeUpdate;
@@ -40,11 +46,8 @@ public class FlexibleColorPicker : MonoBehaviour {
 
     //settings
     public Color startingColor = Color.white;
-    public bool lightweightMode = false;
     private const float HUE_LOOP = 5.9999f;
-
-
-
+    public bool staticMode = false;
 
 
 
@@ -61,33 +64,25 @@ public class FlexibleColorPicker : MonoBehaviour {
         if(this.bufferedColor == null)
             this.bufferedColor = new BufferedColor(startingColor);
 
-        MakeTextures(true);
+        pickerTexturesStandardized = staticMode;
+        UpdateTextures(true);
         MakeModeOptions();
-
-        pickerTexturesStandardized = lightweightMode;
         UpdateMarkers();
-    }
-
-    private void OnDisable() {
-        ClearTextures();
     }
 
     private void Update() {
         typeUpdate = false;
-
-        if(lightweightMode && !pickerTexturesStandardized) {
-            UpdateTextures(true);
-            pickerTexturesStandardized = true;
-        }
-        else if(!lightweightMode && pickerTexturesStandardized) {
-            UpdateTextures(false);
-            pickerTexturesStandardized = false;
-        }
-
         if(lastUpdatedMode != mode)
             ChangeMode(mode);
 
-        MakeTextures(false);
+        if(staticMode && !pickerTexturesStandardized) {
+            UpdateTextures(true);
+            pickerTexturesStandardized = true;
+        }
+        else if(!staticMode && pickerTexturesStandardized) {
+            UpdateTextures(false);
+            pickerTexturesStandardized = false;
+        }
     }
 
     /// <summary>
@@ -152,9 +147,8 @@ public class FlexibleColorPicker : MonoBehaviour {
     public void ChangeMode(MainPickingMode mode) {
         this.mode = mode;
 
-        UpdateTextures(lightweightMode);
+        UpdateTextures();
         UpdateMarkers();
-
         UpdateMode(mode);
     }
 
@@ -266,7 +260,7 @@ public class FlexibleColorPicker : MonoBehaviour {
 
     private void UpdateMarkers() {
         for(int i = 0; i < pickerImages.Length; i++) {
-            RawImage image = GetImage(i);
+            Image image = GetImage(i);
             if(!image || !image.isActiveAndEnabled)
                 continue;
 
@@ -276,7 +270,7 @@ public class FlexibleColorPicker : MonoBehaviour {
         }
     }
 
-    private void UpdateMarker(RawImage picker, PickerType type, Vector2 v) {
+    private void UpdateMarker(Image picker, PickerType type, Vector2 v) {
         switch(type) {
         case PickerType.Main:
         SetMarker(picker, v, true, true);
@@ -288,13 +282,12 @@ public class FlexibleColorPicker : MonoBehaviour {
 
         default:
         bool horizontal = IsHorizontal(picker);
-        float value = horizontal ? v.x : v.y;
         SetMarker(picker, v, horizontal, !horizontal);
         break;
         }
     }
 
-    private void SetMarker(RawImage picker, Vector2 v, bool setX, bool setY) {
+    private void SetMarker(Image picker, Vector2 v, bool setX, bool setY) {
         RectTransform marker = null;
         RectTransform offMarker = null;
         if(setX && setY)
@@ -325,7 +318,7 @@ public class FlexibleColorPicker : MonoBehaviour {
         marker.localPosition = localPos;
     }
 
-    private RectTransform GetMarker(RawImage picker, string search) {
+    private RectTransform GetMarker(Image picker, string search) {
         for(int i = 0; i < picker.transform.childCount; i++) {
             RectTransform candidate = picker.transform.GetChild(i).GetComponent<RectTransform>();
             string candidateName = candidate.name.ToLower();
@@ -417,97 +410,65 @@ public class FlexibleColorPicker : MonoBehaviour {
     * that the user can pick.
     */
 
-
-    private void MakeTextures(bool forceNew = false) {
-        if(pickerImages == null)
-            pickerImages = new RawImage[0];
-
+    private void UpdateTextures(bool forceUpdate = false) {
+        bool skipPickers = !forceUpdate && staticMode;
         foreach(PickerType type in Enum.GetValues(typeof(PickerType))) {
-            RawImage image = GetImage((int)type);
-            if(!image || !image.gameObject.activeInHierarchy)
-                continue;
-
-            Texture currentTexture = image.texture;
-            Vector2 size = image.rectTransform.rect.size;
-            int width = (int)size.x;
-            int height = (int)size.y;
-
-            bool needsNew = forceNew
-                || currentTexture == null
-                || width != currentTexture.width
-                || height != currentTexture.height;
-
-            if(needsNew) {
-                image.texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-                image.texture.name = image.name;
-                image.texture.wrapMode = TextureWrapMode.Clamp;
-                UpdateTexture(type, lightweightMode);
-            }
+            if(!skipPickers || IsPreviewType(type))
+                UpdateTexture(type, staticMode);
         }
-    }
-
-    private void ClearTextures() {
-        for(int i = 0; i < pickerImages.Length; i++) {
-            pickerImages[i].texture = null;
-        }
-    }
-
-    private void UpdateTextures(bool standardized = false) {
-        foreach(PickerType type in Enum.GetValues(typeof(PickerType))) {
-            if(IsPreviewType(type))
-                UpdateTexture(type, false);
-            else if(standardized || !lightweightMode)
-                UpdateTexture(type, standardized);
-        }
-            
     }
 
     private void UpdateTexture(PickerType type, bool standardized) {
-        RawImage image = GetImage((int)type);
+        Image image = GetImage((int)type);
         if(!image || !image.gameObject.activeInHierarchy)
             return;
 
-        Texture2D tex = (Texture2D)(image.texture);
-        int width = tex.width;
-        int height = tex.height;
-        Color[] pixels = new Color[width * height];
-
-        for(int x = 0; x < width; x++) {
-            float normX = (float)x / (width - 1);
-
-            for(int y = 0; y < height; y++) {
-                float normY = (float)y / (height - 1);
-                Vector2 v = new Vector2(normX, normY);
-
-                BufferedColor bc = this.bufferedColor;
-                if(standardized)
-                    bc = GetDefaultColor(type);
-                bc = PickColor(bc, type, v);
-                Color c = bc.color;
-
-                if(!IsAlphaType(type))
-                    c.a = 1f;
-
-                int pixelIndex = x + y * width;
-                pixels[pixelIndex] = c;
+        Material m = image.material;
+        BufferedColor bc = this.bufferedColor;
+        if(standardized) {
+            switch(type) {
+            case PickerType.S: bc = new BufferedColor(Color.red); break;
+            case PickerType.Preview:
+            case PickerType.PreviewAlpha: break;
+            default: bc = new BufferedColor(Color.black); break;
             }
         }
 
-        tex.SetPixels(pixels);
-        tex.Apply();
+        bool alpha = IsAlphaType(type);
+        m.SetInt("_Mode", GetGradientMode(type));
+        Color c1 = PickColor(bc, type, Vector2.zero).color;
+        Color c2 = PickColor(bc, type, Vector2.one).color;
+        if(!alpha) {
+            c1 = new Color(c1.r, c1.g, c1.b);
+            c2 = new Color(c2.r, c2.g, c2.b);
+        }
+        m.SetColor("_Color1", c1);
+        m.SetColor("_Color2", c2);
+        if(type == PickerType.Main)
+            m.SetInt("_DoubleMode", (int)mode);
+        if(standardized)
+            m.SetVector("_HSV", new Vector4(0f, 1f, 1f, 1f));
+        else
+            m.SetVector("_HSV", new Vector4(bc.h / HUE_LOOP, bc.s, bc.v, alpha ? bc.a : 1f));
     }
 
-    private RawImage GetImage(int index) {
+    private int GetGradientMode(PickerType type) {
+        int o = IsHorizontal(pickerImages[(int)type]) ? 0 : 1;
+        switch(type) {
+        case PickerType.Main: return 2;
+        case PickerType.H: return 3 + o;
+        default: return o;
+        }
+    }
+
+    private Image GetImage(int index) {
         if(index < 0 || index >= pickerImages.Length)
             return null;
-        RawImage toReturn = pickerImages[index];
-        if(!toReturn.gameObject.activeInHierarchy)
+        Image toReturn = pickerImages[index];
+        if(!toReturn || !toReturn.gameObject.activeInHierarchy)
             return null;
         return toReturn;
     }
-
-
-
 
 
 
@@ -617,7 +578,7 @@ public class FlexibleColorPicker : MonoBehaviour {
     /// Should given picker image be controlled horizontally?
     /// Returns true if the image is bigger in the horizontal direction.
     /// </summary>
-    private static bool IsHorizontal(RawImage image) {
+    private static bool IsHorizontal(Image image) {
         Vector2 size = image.rectTransform.rect.size;
         return size.x >= size.y;
     }
@@ -849,7 +810,6 @@ public class FlexibleColorPicker : MonoBehaviour {
         }
 
         public BufferedColor PickV(float value) {
-            Vector3 hsv = RGBToHSV(this.color);
             Color toReturn = HSVToRGB(bufferedHue, bufferedSaturation, value);
             toReturn.a = this.color.a;
             return new BufferedColor(toReturn, bufferedHue, bufferedSaturation);

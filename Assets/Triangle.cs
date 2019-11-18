@@ -50,7 +50,7 @@ public class Triangle : MonoBehaviour
         transform.position = new Vector3(StartX,StartY,FinalZ); //Sets the position to StartX and StartY, sets Z to 0
         transform.localScale = new Vector3(FinalScale, FinalScale, 1); //Sets the scale to FinalScale
         FinalSpeed = YSpeedMin; //YSpeedMin is connected to the slider in UI called "Triangle Speed". Variable YSpeedMax is unused but kept around for purposes of me being lazy.
-        FinalSpeed = FinalSpeed - FinalScale - (FinalScale / 1.5f); //Make it so the smaller the triangles are the faster they move by removing the size from the speed.
+        FinalSpeed = FinalSpeed - (FinalScale * 5); //Make it so the smaller the triangles are the faster they move by removing the size from the speed.
         if(FinalSpeed < 0.2f)
         {
             FinalSpeed = 0.2f;
@@ -73,11 +73,12 @@ public class Triangle : MonoBehaviour
         if (transform.position.y >= 20) { 
             Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
         }
+        
     }
 
-    // all of this stuff just sets the variables to the slider variables
+        // all of this stuff just sets the variables to the slider variables
 
-    void SET_S_YSMIN(float value)
+        void SET_S_YSMIN(float value)
     {
         
         YSpeedMin = value;
@@ -107,4 +108,12 @@ public class Triangle : MonoBehaviour
         
         ScaleMax = value;
     }
+
+
+    //uncomment this to enable osu! mode (replace the tri sprite with a hitcircle as well)
+    //void OnMouseDown()
+    //{
+    //    Debug.Log("owo");
+    //    Destroy(gameObject);
+    //}
 }
