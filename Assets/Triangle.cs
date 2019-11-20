@@ -6,6 +6,7 @@ public class Triangle : MonoBehaviour
 {
     // Set the variables!
 
+    AudioSource m_MyAudioSource;
     public GameObject TriPrefab;
     public GameObject Savedialog;
     public float YSpeedMin;
@@ -20,6 +21,8 @@ public class Triangle : MonoBehaviour
     public float StartX;
     public float StartY;
     public float FinalZ;
+    public Sprite hitcircle;
+    public Sprite trianglespr;
     // Sliders
     public UnityEngine.UI.Slider S_YSpeedMin;
     public UnityEngine.UI.Slider S_YSpeedMax;
@@ -27,9 +30,18 @@ public class Triangle : MonoBehaviour
     public UnityEngine.UI.Slider S_OpacityMax;
     public UnityEngine.UI.Slider S_ScaleMin;
     public UnityEngine.UI.Slider S_ScaleMax;
-    
+    public float wait;
+    public float waitamount;
+    public float clicked;
+    Collider m_Collider;
+
     public void Init()
     {
+        m_Collider = GetComponent<Collider>();
+        clicked = 0;
+        waitamount = 0;
+        wait = 0;
+        m_MyAudioSource = GetComponent<AudioSource>();
         GetComponent<Renderer>().material.color = Random.ColorHSV(1f, 0f, 0f, 0f, 0f, 1f); // Sets the triangles to random black or white, or anywhere inbetween colours.
         YSpeedMin  =  S_YSpeedMin.value;  //more slider stuff
         YSpeedMax  =  S_YSpeedMax.value;  //more slider stuff
@@ -46,6 +58,7 @@ public class Triangle : MonoBehaviour
         StartY = -8 ; //Sets startY to just off screen
         FinalScale = Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         FinalSpeed = Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
+
         FinalZ = FinalScale; //Sets FinalZ to Scale, so the smaller the triangles are the closer they are to the camera, closer = smaller number
         transform.position = new Vector3(StartX,StartY,FinalZ); //Sets the position to StartX and StartY, sets Z to 0
         transform.localScale = new Vector3(FinalScale, FinalScale, 1); //Sets the scale to FinalScale
@@ -73,12 +86,32 @@ public class Triangle : MonoBehaviour
         if (transform.position.y >= 20) { 
             Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
         }
+
+        if(osumodecontroller.omode == 1)
+        {
+            GetComponent<SpriteRenderer>().sprite = hitcircle;
+            print(osumodecontroller.omode);
+            GetComponent<Renderer>().material.color = Random.ColorHSV(1f, 1f, 0f, 0f, 1f, 1f);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = trianglespr;
+
+        }
+        if(clicked == 1)
+        {
+            SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>();
+            Color col = spRend.color;
+            col.a -= 0.1f;
+            spRend.color = col;
+            transform.localScale += new Vector3(1.0f, 1.0f, 1.0f) * Time.deltaTime / 2;
+        }
         
     }
 
         // all of this stuff just sets the variables to the slider variables
 
-        void SET_S_YSMIN(float value)
+    void SET_S_YSMIN(float value)
     {
         
         YSpeedMin = value;
@@ -110,10 +143,20 @@ public class Triangle : MonoBehaviour
     }
 
 
-    //uncomment this to enable osu! mode (replace the tri sprite with a hitcircle as well)
-    //void OnMouseDown()
-    //{
-    //    Debug.Log("owo");
-    //    Destroy(gameObject);
-    //}
+   
+    void OnMouseDown()
+    {
+        if (osumodecontroller.omode == 1)
+        {
+            if (clicked == 0)
+            {
+                Debug.Log("Hit");
+                m_MyAudioSource.Play();
+                Destroy(gameObject, 1);
+                clicked = 1;
+                m_Collider.enabled = false;
+            }
+        }
+        
+    }
 }

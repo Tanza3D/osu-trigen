@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - FCP_ExampleScript
+    - FileDragAndDrop
     - FlexibleColorPicker
     - HueChanger
     - IntroManager
@@ -12,6 +13,7 @@ ScriptsOnlyBuild:
     - Triangle
     - TriangleSpawner
     - UIHideScript
+    - osumode
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -27,10 +29,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -89,35 +89,35 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 9908}
+      Script: {instanceID: 9922}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10330}
     - Class: 114
-      Script: {instanceID: 10336}
+      Script: {instanceID: 10350}
     - Class: 114
-      Script: {instanceID: 10378}
+      Script: {instanceID: 10392}
     - Class: 114
-      Script: {instanceID: 10616}
+      Script: {instanceID: 10630}
     - Class: 114
-      Script: {instanceID: 10800}
-    - Class: 114
-      Script: {instanceID: 10936}
-    - Class: 114
-      Script: {instanceID: 10946}
+      Script: {instanceID: 10816}
     - Class: 114
       Script: {instanceID: 10952}
     - Class: 114
-      Script: {instanceID: 11024}
+      Script: {instanceID: 10962}
     - Class: 114
-      Script: {instanceID: 11136}
+      Script: {instanceID: 10968}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11368}
+      Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11216}
+    - Class: 114
+      Script: {instanceID: 11384}
+    - Class: 114
+      Script: {instanceID: 11590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -159,56 +159,64 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 9868}
+      Script: {instanceID: 9882}
     - Class: 114
-      Script: {instanceID: 9908}
+      Script: {instanceID: 9922}
     - Class: 114
-      Script: {instanceID: 10216}
+      Script: {instanceID: 10230}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10330}
     - Class: 114
-      Script: {instanceID: 10464}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10466}
+      Script: {instanceID: 10480}
     - Class: 114
-      Script: {instanceID: 10502}
+      Script: {instanceID: 10516}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10534}
     - Class: 114
-      Script: {instanceID: 10704}
+      Script: {instanceID: 10670}
     - Class: 114
-      Script: {instanceID: 10906}
+      Script: {instanceID: 10720}
     - Class: 114
-      Script: {instanceID: 10946}
+      Script: {instanceID: 10922}
     - Class: 114
-      Script: {instanceID: 11018}
+      Script: {instanceID: 10962}
     - Class: 114
-      Script: {instanceID: 11024}
+      Script: {instanceID: 11034}
     - Class: 114
-      Script: {instanceID: 11118}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11134}
     - Class: 114
-      Script: {instanceID: 11538}
+      Script: {instanceID: 11216}
     - Class: 114
-      Script: {instanceID: 11564}
+      Script: {instanceID: 11554}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11580}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 11628}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 11644}
+    - Class: 114
+      Script: {instanceID: 13136}
+    - Class: 114
+      Script: {instanceID: 13978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -238,6 +246,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 60fed068e941862d0f98cfc5ed45595f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FCP_SpriteMeshEditor
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -474,6 +488,12 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: ca3469c760179f1a3ca8b3e2f197ba24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FileDragAndDrop
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -564,13 +584,13 @@ ScriptsOnlyBuild:
     className: SaveDialog
   - hash:
       serializedVersion: 2
-      Hash: 31754f4a73385aca91c2f08538c339fa
+      Hash: 740d3bcc5a9540fe18c142b5582553fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Triangle
   - hash:
       serializedVersion: 2
-      Hash: 35ec97400fd57993e189a9a878318af3
+      Hash: 6577f5e18999c80853b944512fb27961
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIHideScript
@@ -714,12 +734,12 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 60fed068e941862d0f98cfc5ed45595f
+      Hash: 6d040e75bfdd53d81d08ce4f455c4b51
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: FCP_SpriteMeshEditor
+    className: osumode
   platform: 19
   scenePathNames:
   - Assets/Scenes/intro.unity
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/b1.7.1/osutrigen.exe
+  playerPath: G:/! osu!trigen exports/b1.8/osutrigen.exe
