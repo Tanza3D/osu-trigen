@@ -36,14 +36,16 @@ public class FileDragAndDrop : MonoBehaviour
         {
             return;
         }
-        string filePath = aFiles[0];
-        Texture2D tex = null;
-        byte[] fileData;
-        fileData = File.ReadAllBytes(filePath);
-        tex = new Texture2D(2, 2);
-        tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
-        Rect rec = new Rect(0, 0, 1024, 1024);
-        tri.GetComponent<SpriteRenderer>().sprite = Sprite.Create(tex, rec, new Vector2(0.5f, 0.5f), 100);
+      
+            string filePath = aFiles[0];
+            Texture2D tex = null;
+            byte[] fileData;
+            fileData = File.ReadAllBytes(filePath);
+            tex = new Texture2D(2, 2);
+            tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
+            Rect rec = new Rect(0, 0, 1024, 1024);
+            tri.GetComponent<SpriteRenderer>().sprite = Sprite.Create(tex, rec, new Vector2(0.5f, 0.5f), 100);
+        
         
     }
 

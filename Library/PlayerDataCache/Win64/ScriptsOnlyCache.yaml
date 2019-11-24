@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Draggable
     - FCP_ExampleScript
     - FileDragAndDrop
     - FlexibleColorPicker
@@ -34,7 +35,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -93,31 +93,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9922}
     - Class: 114
-      Script: {instanceID: 10330}
+      Script: {instanceID: 10334}
     - Class: 114
-      Script: {instanceID: 10350}
+      Script: {instanceID: 10354}
     - Class: 114
-      Script: {instanceID: 10392}
+      Script: {instanceID: 10396}
     - Class: 114
-      Script: {instanceID: 10630}
+      Script: {instanceID: 10634}
     - Class: 114
-      Script: {instanceID: 10816}
+      Script: {instanceID: 10820}
     - Class: 114
-      Script: {instanceID: 10952}
-    - Class: 114
-      Script: {instanceID: 10962}
+      Script: {instanceID: 10958}
     - Class: 114
       Script: {instanceID: 10968}
     - Class: 114
-      Script: {instanceID: 11040}
+      Script: {instanceID: 10974}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11046}
     - Class: 114
-      Script: {instanceID: 11216}
+      Script: {instanceID: 11158}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11590}
+      Script: {instanceID: 11390}
+    - Class: 114
+      Script: {instanceID: 11596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,49 +174,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9922}
     - Class: 114
-      Script: {instanceID: 10230}
+      Script: {instanceID: 10036}
     - Class: 114
-      Script: {instanceID: 10330}
+      Script: {instanceID: 10234}
     - Class: 114
-      Script: {instanceID: 10478}
+      Script: {instanceID: 10334}
     - Class: 114
-      Script: {instanceID: 10480}
+      Script: {instanceID: 10482}
     - Class: 114
-      Script: {instanceID: 10516}
+      Script: {instanceID: 10484}
     - Class: 114
-      Script: {instanceID: 10534}
+      Script: {instanceID: 10520}
     - Class: 114
-      Script: {instanceID: 10670}
+      Script: {instanceID: 10538}
     - Class: 114
-      Script: {instanceID: 10720}
+      Script: {instanceID: 10674}
     - Class: 114
-      Script: {instanceID: 10922}
+      Script: {instanceID: 10724}
     - Class: 114
-      Script: {instanceID: 10962}
+      Script: {instanceID: 10908}
     - Class: 114
-      Script: {instanceID: 11034}
+      Script: {instanceID: 10928}
+    - Class: 114
+      Script: {instanceID: 10968}
     - Class: 114
       Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 11046}
     - Class: 114
-      Script: {instanceID: 11216}
+      Script: {instanceID: 11140}
     - Class: 114
-      Script: {instanceID: 11554}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11580}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11590}
+      Script: {instanceID: 11586}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11626}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11632}
     - Class: 114
-      Script: {instanceID: 13136}
+      Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 13978}
+      Script: {instanceID: 13222}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -342,6 +344,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: fa91e9521421866eb0abe07b01aee47a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Draggable
   - hash:
       serializedVersion: 2
       Hash: 0dbc3be398b4869a5c8d0d8481ee402c
@@ -522,6 +530,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 6d040e75bfdd53d81d08ce4f455c4b51
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: osumode
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -732,14 +746,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 6d040e75bfdd53d81d08ce4f455c4b51
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: osumode
   platform: 19
   scenePathNames:
   - Assets/Scenes/intro.unity
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/b1.8/osutrigen.exe
+  playerPath: G:/! osu!trigen exports/b1.10b/osutrigen.exe

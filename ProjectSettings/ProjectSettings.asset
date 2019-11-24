@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 17
+  serializedVersion: 18
   productGUID: 39d9614e6292d2342bec69ec46ef22cb
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -52,8 +52,8 @@ PlayerSettings:
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
-  iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 0
+  iosUseCustomAppBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -151,12 +151,13 @@ PlayerSettings:
       sharedDepthBuffer: 1
       dashSupport: 1
       lowOverheadMode: 0
+      protectedContext: 0
+      v2Signing: 0
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   protectGraphicsMemory: 0
   enableFrameTimingStats: 0
   useHDRDisplay: 0
-  D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
   resolutionScalingMode: 0
@@ -276,7 +277,99 @@ PlayerSettings:
   AndroidAppBundleSizeToValidate: 150
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons: []
-  m_BuildTargetPlatformIcons: []
+  m_BuildTargetPlatformIcons:
+  - m_BuildTarget: Android
+    m_Icons:
+    - m_Textures: []
+      m_Width: 432
+      m_Height: 432
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 324
+      m_Height: 324
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 216
+      m_Height: 216
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 162
+      m_Height: 162
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 108
+      m_Height: 108
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 81
+      m_Height: 81
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 1
+      m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
@@ -537,7 +630,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template_2D
   metroPackageVersion: 
-  metroCertificatePath: C:\unity\osutrigen\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
@@ -586,6 +679,7 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   XboxOneXTitleMemory: 8
+  xboxOneScriptCompiler: 1
   XboxOneOverrideIdentityName: 
   vrEditorSettings:
     daydream:
