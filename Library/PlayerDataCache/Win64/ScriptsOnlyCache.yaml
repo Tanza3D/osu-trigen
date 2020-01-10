@@ -31,8 +31,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -74,11 +76,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -92,6 +100,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 10822}
+    - Class: 114
+      Script: {instanceID: 10998}
     - Class: 114
       Script: {instanceID: 11038}
     - Class: 114
@@ -111,15 +121,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12092}
     - Class: 114
-      Script: {instanceID: 12164}
-    - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
       Script: {instanceID: 12344}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12722}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -208,21 +216,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12344}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12356}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 12776}
     - Class: 114
-      Script: {instanceID: 24046}
+      Script: {instanceID: 14424}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -440,13 +448,13 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: e097ac58ab97ca65b01229a8948cb648
+      Hash: 038ed5ec0f6bfa86da67630a194fba22
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IntroTriangleSpawner
   - hash:
       serializedVersion: 2
-      Hash: d487c566f75b30dc77e83efcbb889071
+      Hash: 038ed5ec0f6bfa86da67630a194fba22
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TriangleSpawner
@@ -494,7 +502,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 879f1f827695e33517a5562e2fd80ceb
+      Hash: 30aaf6cf105664880651d332be365620
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IntroTriangle
@@ -608,7 +616,7 @@ ScriptsOnlyBuild:
     className: SaveDialog
   - hash:
       serializedVersion: 2
-      Hash: 740d3bcc5a9540fe18c142b5582553fa
+      Hash: 4bb7c880f61b02bde41b7db0c5901b09
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Triangle
@@ -636,6 +644,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: d894941fb86943a710cce1e4cdbcebb8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Local
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -756,14 +770,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 2e3b2f1c10c6145d3551528510b2eb95
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Local
   platform: 19
   scenePathNames:
   - Assets/Scenes/intro.unity
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/b1.8 - localization and ui/Win/osutrigen.exe
+  playerPath: G:/! osu!trigen exports/b1.10 or v1.0/osu!trigen.exe

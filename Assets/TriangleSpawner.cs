@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEditor;
 using SFB;
 using System.IO;
 
@@ -13,6 +14,7 @@ public class TriangleSpawner : MonoBehaviour
 
     public float SpawnSpeed;
     public GameObject triangle;
+    
     public float SpawnSpeedFinal;
     [SerializeField] UnityEngine.UI.Slider spawnSpeedSlider;
     [SerializeField] UnityEngine.UI.Slider S_YSpeedMin;
@@ -21,6 +23,7 @@ public class TriangleSpawner : MonoBehaviour
     [SerializeField] UnityEngine.UI.Slider S_OpacityMax;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMin;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMax;
+    public Text hex;
     public GameObject Savedialog;
     // Start is called before the first frame update
     void Start()
@@ -46,6 +49,15 @@ public class TriangleSpawner : MonoBehaviour
             tri.S_ScaleMax =   S_ScaleMax;
             tri.Init();
         }
+
+        osumodecontroller.hex = hex.GetComponent<Text>().text;
+        osumodecontroller.hex = osumodecontroller.hex.Replace("#", "");
+        if(osumodecontroller.hex.Length == 5)
+        {
+            osumodecontroller.hex = osumodecontroller.hex + "f";
+           
+        }
+        Debug.Log(osumodecontroller.hex);
     }
     void SetSlider(float value){
         SpawnSpeed = value;
