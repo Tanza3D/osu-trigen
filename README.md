@@ -1,13 +1,14 @@
-# osu-trigen
+# osu!trigen
+### realtime animated triangles in osu! style
 
-Need some triangles quick? ANIMATED? We got you! osu!trigen by Eclipsedteam is the best place to go!
+osu!trigen is an application made in Unity created to make animated triangles without too much stress on the system.
 
-FAQ:
+osu!trigen is used for a plethora of things, from showing animated triangles in stream backgrounds, to just recording them for multiple minutes to use in videos.
 
-Q: Why is osu!trigen related to osu?
+osu!trigen is under the MIT licence. as you can see in the licence page.
 
-A: osu!lazer has these style of triangles in the logo, and other places like song select, i like these triangles and wanted to recreate them, osu!trigen was the goto name
+### Find the latest releases [here!](https://github.com/eclipsedteam/osu-trigen/releases/latest)
 
-Q: How do i save colours?
+This was created using the Unity version 2019.3.0a8, but can be downgraded, or upgraded to later versions. We'll soon move to the latest release version of Unity.
 
-A: you dont.
+## Thanks for checking out osu!trigen!
