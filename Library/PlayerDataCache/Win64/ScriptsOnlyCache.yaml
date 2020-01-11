@@ -31,10 +31,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -99,35 +97,35 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10822}
+      Script: {instanceID: 10824}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 11000}
     - Class: 114
-      Script: {instanceID: 11038}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11452}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11472}
     - Class: 114
-      Script: {instanceID: 11514}
+      Script: {instanceID: 11516}
     - Class: 114
-      Script: {instanceID: 11754}
+      Script: {instanceID: 11756}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 12076}
+      Script: {instanceID: 12078}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 12094}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12280}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12346}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12516}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12724}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -178,59 +176,59 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10822}
+      Script: {instanceID: 10824}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 11000}
     - Class: 114
-      Script: {instanceID: 11038}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11150}
+      Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11450}
-    - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 11452}
     - Class: 114
       Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11638}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11658}
+      Script: {instanceID: 11640}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11660}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 12028}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12046}
+      Script: {instanceID: 12030}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 12048}
     - Class: 114
-      Script: {instanceID: 12158}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 12160}
     - Class: 114
-      Script: {instanceID: 12260}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12356}
+      Script: {instanceID: 12346}
     - Class: 114
-      Script: {instanceID: 12686}
+      Script: {instanceID: 12358}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12688}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12714}
     - Class: 114
-      Script: {instanceID: 12740}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12742}
     - Class: 114
-      Script: {instanceID: 12776}
+      Script: {instanceID: 12760}
     - Class: 114
-      Script: {instanceID: 14424}
+      Script: {instanceID: 12778}
+    - Class: 114
+      Script: {instanceID: 14418}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -774,4 +772,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/intro.unity
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/b1.10 or v1.0/osu!trigen.exe
+  playerPath: G:/! osu!trigen exports/1.0.1/osu!trigen.exe
