@@ -52,11 +52,7 @@ public class TriangleSpawner : MonoBehaviour
 
         osumodecontroller.hex = hex.GetComponent<Text>().text;
         osumodecontroller.hex = osumodecontroller.hex.Replace("#", "");
-        if(osumodecontroller.hex.Length == 5)
-        {
-            osumodecontroller.hex = osumodecontroller.hex + "f";
-           
-        }
+        //Removed Hex Length Fallback (Issue Fixed)
         Debug.Log(osumodecontroller.hex);
     }
     void SetSlider(float value){

@@ -25,6 +25,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         startPosition = target.position;
         startMousePosition = Input.mousePosition;
+        transform.SetAsLastSibling();
     }
 
     public void OnPointerUp(PointerEventData dt)

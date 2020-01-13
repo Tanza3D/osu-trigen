@@ -76,7 +76,6 @@ public class Triangle : MonoBehaviour
         waitamount = 0; // sets waitamount to 0
         wait = 0; // sets wait to 0 
         m_MyAudioSource = GetComponent<AudioSource>(); // adds audiosource for osumode
-        
         YSpeedMin  =  S_YSpeedMin.value;  //more slider stuff
         YSpeedMax  =  S_YSpeedMax.value;  //more slider stuff
         OpacityMin =  S_OpacityMin.value; //more slider stuff
@@ -92,7 +91,6 @@ public class Triangle : MonoBehaviour
         StartY = -8 ; //Sets startY to just off screen
         FinalScale = UnityEngine.Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         FinalSpeed = UnityEngine.Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
-
         FinalZ = FinalScale; //Sets FinalZ to Scale, so the smaller the triangles are the closer they are to the camera, closer = smaller number
         transform.position = new Vector3(StartX,StartY,FinalZ); //Sets the position to StartX and StartY, sets Z to 0
         transform.localScale = new Vector3(FinalScale, FinalScale, 1); //Sets the scale to FinalScale
@@ -106,7 +104,6 @@ public class Triangle : MonoBehaviour
         //
         // If a triangle was the size of two, and the speed was set to 8, the speed would end out as 4.
         // Meanwhile if another triangle was set to the size of 0.2, same speed, it'd end out as 7.6
-       
         S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN); // adds listeners
         S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX); // adds listeners
         S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN); // adds listeners
