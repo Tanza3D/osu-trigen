@@ -69,32 +69,41 @@ public class SaveDialog : MonoBehaviour
         OpacityMax = S_OpacityMax.value;
         ScaleMin = S_ScaleMin.value;
         ScaleMax = S_ScaleMax.value;
-        //tri.ScaleMax = 10;
+        //tri.ScaleMax = 10; // dunno why this is here, not anymore
     }
 
 
     void SavePressed()
     {
+        // sets string "fileoutput" to all the variablenames and the variables themselves
         string fileOutput = "SpawnSpeed = " + SpawnSpeed + "\nYSpeedMin = " + YSpeedMin + "\nYSpeedMax = " + YSpeedMax + "\nOpacityMin = " + OpacityMin + "\nOpacityMax = " + OpacityMax + "\nScaleMin = " + ScaleMin + "\nScaleMax = " + ScaleMax;
+        // opens panel
         var path = StandaloneFileBrowser.SaveFilePanel("Save TriGen config file as .tgcf", "", "config", "tgcf");
+        // detects if path is empty 
         if (!string.IsNullOrEmpty(path))
         {
+            // dunno what this does
             File.WriteAllText(path, fileOutput);
-            
         }
-        print("Save has been Pressed");
+        print("Save has been Pressed"); //needs to be a debug log now
     }
     void LoadPressed()
     {
+        // opens browser
         var paths = StandaloneFileBrowser.OpenFilePanel("Load Trigen config file (.tgcf)", "", "tgcf", false);
+
+        // detects if path exists
         if (paths.Length > 0)
         {
+
+            // not sure what this does
             foreach (string line in File.ReadLines(paths[0]))
             {
-                float val = 0.0f;
-                string varName = "";
-                try
+                float val = 0.0f; // sets val to 0.0, obvious
+                string varName = ""; // sets varname to nothing.
+                try // tries something
                 {
+                    // from this point on i have no clue
                     varName = line.Substring(0, line.IndexOf("="));
                     varName = varName.Trim();
                     string varValue = line.Substring(line.IndexOf("=") + 1);
@@ -108,6 +117,7 @@ public class SaveDialog : MonoBehaviour
                 }
                 switch (varName)
                 {
+                    // still no clue sorry
                     case "SpawnSpeed":
                         S_SpawnSpeed.value = val;
                         S_SpawnSpeed.onValueChanged.Invoke(val);

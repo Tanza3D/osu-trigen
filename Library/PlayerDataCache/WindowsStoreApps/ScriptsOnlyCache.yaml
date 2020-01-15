@@ -33,7 +33,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -88,69 +87,69 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9690}
+      Script: {instanceID: 9692}
     - Class: 114
-      Script: {instanceID: 9860}
+      Script: {instanceID: 9862}
     - Class: 114
-      Script: {instanceID: 9902}
+      Script: {instanceID: 9904}
     - Class: 114
-      Script: {instanceID: 10016}
+      Script: {instanceID: 10018}
     - Class: 114
-      Script: {instanceID: 10214}
+      Script: {instanceID: 10216}
     - Class: 114
-      Script: {instanceID: 10314}
+      Script: {instanceID: 10316}
     - Class: 114
-      Script: {instanceID: 10334}
-    - Class: 114
-      Script: {instanceID: 10462}
+      Script: {instanceID: 10336}
     - Class: 114
       Script: {instanceID: 10464}
     - Class: 114
-      Script: {instanceID: 10500}
+      Script: {instanceID: 10466}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10502}
     - Class: 114
-      Script: {instanceID: 10656}
+      Script: {instanceID: 10522}
     - Class: 114
-      Script: {instanceID: 10706}
+      Script: {instanceID: 10556}
     - Class: 114
-      Script: {instanceID: 10890}
+      Script: {instanceID: 10660}
     - Class: 114
-      Script: {instanceID: 10910}
+      Script: {instanceID: 10710}
     - Class: 114
-      Script: {instanceID: 10940}
+      Script: {instanceID: 10894}
     - Class: 114
-      Script: {instanceID: 10950}
+      Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 10956}
+      Script: {instanceID: 10944}
     - Class: 114
-      Script: {instanceID: 11022}
+      Script: {instanceID: 10954}
     - Class: 114
-      Script: {instanceID: 11028}
+      Script: {instanceID: 10960}
     - Class: 114
-      Script: {instanceID: 11126}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11208}
+      Script: {instanceID: 11032}
     - Class: 114
-      Script: {instanceID: 11220}
+      Script: {instanceID: 11130}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11212}
     - Class: 114
-      Script: {instanceID: 11548}
+      Script: {instanceID: 11224}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11258}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11620}
+      Script: {instanceID: 11582}
     - Class: 114
-      Script: {instanceID: 11638}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 16316}
+      Script: {instanceID: 11610}
     - Class: 114
-      Script: {instanceID: 26926}
+      Script: {instanceID: 11628}
+    - Class: 114
+      Script: {instanceID: 11646}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -414,6 +413,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 9034a2dcc7385cb62ca082b9a1468d6b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: getaudio
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -690,13 +695,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 9034a2dcc7385cb62ca082b9a1468d6b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: getaudio
   platform: 21
   scenePathNames:
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/trigen or something
+  playerPath: G:/! osu!trigen exports/1.0.2/S
