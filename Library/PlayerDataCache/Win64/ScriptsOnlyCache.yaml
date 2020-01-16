@@ -6,8 +6,8 @@ ScriptsOnlyBuild:
     - FileDragAndDrop
     - FlexibleColorPicker
     - HueChanger
-    - LightManager
     - Local
+    - PopupControl
     - SaveDialog
     - Triangle
     - TriangleSpawner
@@ -108,8 +108,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10502}
     - Class: 114
-      Script: {instanceID: 10522}
-    - Class: 114
       Script: {instanceID: 10556}
     - Class: 114
       Script: {instanceID: 10660}
@@ -150,7 +148,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11628}
     - Class: 114
-      Script: {instanceID: 11646}
+      Script: {instanceID: 11640}
+    - Class: 114
+      Script: {instanceID: 11648}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -166,6 +166,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -416,7 +418,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 9034a2dcc7385cb62ca082b9a1468d6b
+      Hash: 31921049519578283d493de868a97144
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: getaudio
@@ -680,6 +682,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: a45055bd15553854bd4d604140249a21
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopupControl
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -699,4 +707,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/1.0.2/EX/osu!trigen.exe
+  playerPath: G:/! osu!trigen exports/1.0.3/osu!trigen.exe
