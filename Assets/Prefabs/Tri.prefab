@@ -157,7 +157,7 @@ MonoBehaviour:
   hextext: 
   clicked: 0
   hexcodetext: 
---- !u!114 &-1898065560938345773
+--- !u!114 &
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
