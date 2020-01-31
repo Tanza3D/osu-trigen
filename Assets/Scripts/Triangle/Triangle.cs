@@ -52,22 +52,22 @@ public class Triangle : MonoBehaviour
         {
             throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
         } // detects if the hex is an odd number
-
         byte[] data = new byte[hexString.Length / 2];
         for (int index = 0; index < data.Length; index++)
         {
             string byteValue = hexString.Substring(index * 2, 2);
             data[index] = byte.Parse(byteValue, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
         }
-
         return data;
     }
 
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = trianglespr;
+    }
 
     public void Init()
     {
-        
-
         byte[] colors = ConvertHexStringToByteArray("FFAB02"); //converts hex to rgb
         randomadd = UnityEngine.Random.Range(-0.1f, 0.1f); // sets randomadd to add to value in updatecolor()
         updatecolor(); // run updatecolor to update the triangle colour at init
@@ -116,7 +116,7 @@ public class Triangle : MonoBehaviour
         updatecolor();
         //hexcodetext = hexcode.text;
         transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
-        if (transform.position.y >= 20) { 
+        if (transform.position.y >= 20) {
             Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
         }
 
@@ -128,7 +128,7 @@ public class Triangle : MonoBehaviour
         }
         else
         {
-            GetComponent<SpriteRenderer>().sprite = trianglespr;
+            //GetComponent<SpriteRenderer>().sprite = trianglespr; (commented out & moved cause it overrides replacement)
 
         }
         if(clicked == 1)

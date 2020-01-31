@@ -14,11 +14,14 @@ public class UIHideScript : MonoBehaviour
     public GameObject menu; // Assign in inspector
     private bool isShowing;
     public GameObject tri;
+    public GameObject _tri;
+    public ReplaceTri _rTri;
 
     public Button delTriButton;
 
     void Start()
     {
+        _rTri = GameObject.Find("ReplaceTri").GetComponent<ReplaceTri>();
         HideButton.onClick.AddListener(HideButtonTap);
         delTriButton.onClick.AddListener(DelTri);
     }
@@ -44,7 +47,12 @@ public class UIHideScript : MonoBehaviour
 
         foreach (GameObject aa in tris)
         {
-            Destroy(aa);
+            if(aa.name != "Tri") //Only Deletes Clones, so Tri's can be reset
+            {
+                Destroy(aa);
+            }
+            _rTri._triPrefab.GetComponent<SpriteRenderer>().sprite = _rTri._tri; //Sets prefab sprite to original
+            _rTri._triPrefab.GetComponent<Triangle>().trianglespr = _rTri._tri; //^^
         }
     }
 }

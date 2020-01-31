@@ -22,6 +22,6 @@ public class FCP_ExampleScript : MonoBehaviour
         }
 
         //extract color from the FCP and apply it to the object material
-        material.color = fcp.color;
+        //material.color = fcp.color; commented to stop errors
     }
 }

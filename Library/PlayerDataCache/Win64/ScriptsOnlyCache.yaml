@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioManager
     - Draggable
     - FCP_ExampleScript
     - FileDragAndDrop
@@ -8,6 +9,7 @@ ScriptsOnlyBuild:
     - HueChanger
     - Local
     - PopupControl
+    - ReplaceTri
     - SaveDialog
     - Triangle
     - TriangleSpawner
@@ -88,69 +90,73 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9702}
     - Class: 114
-      Script: {instanceID: 9862}
+      Script: {instanceID: 9872}
     - Class: 114
-      Script: {instanceID: 9904}
+      Script: {instanceID: 9912}
     - Class: 114
-      Script: {instanceID: 10018}
+      Script: {instanceID: 10026}
     - Class: 114
-      Script: {instanceID: 10216}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10324}
     - Class: 114
-      Script: {instanceID: 10336}
+      Script: {instanceID: 10344}
     - Class: 114
-      Script: {instanceID: 10464}
+      Script: {instanceID: 10472}
     - Class: 114
-      Script: {instanceID: 10466}
+      Script: {instanceID: 10474}
     - Class: 114
-      Script: {instanceID: 10502}
+      Script: {instanceID: 10510}
     - Class: 114
-      Script: {instanceID: 10556}
+      Script: {instanceID: 10562}
     - Class: 114
-      Script: {instanceID: 10660}
+      Script: {instanceID: 10666}
     - Class: 114
-      Script: {instanceID: 10710}
+      Script: {instanceID: 10708}
     - Class: 114
-      Script: {instanceID: 10894}
+      Script: {instanceID: 10718}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 10752}
     - Class: 114
-      Script: {instanceID: 10944}
+      Script: {instanceID: 10904}
+    - Class: 114
+      Script: {instanceID: 10924}
     - Class: 114
       Script: {instanceID: 10954}
     - Class: 114
-      Script: {instanceID: 10960}
+      Script: {instanceID: 10964}
     - Class: 114
-      Script: {instanceID: 11026}
+      Script: {instanceID: 10970}
     - Class: 114
-      Script: {instanceID: 11032}
+      Script: {instanceID: 11036}
     - Class: 114
-      Script: {instanceID: 11130}
+      Script: {instanceID: 11042}
     - Class: 114
-      Script: {instanceID: 11212}
+      Script: {instanceID: 11140}
     - Class: 114
-      Script: {instanceID: 11224}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11234}
     - Class: 114
-      Script: {instanceID: 11386}
+      Script: {instanceID: 11392}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11562}
     - Class: 114
-      Script: {instanceID: 11582}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11616}
     - Class: 114
-      Script: {instanceID: 11628}
+      Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 11640}
+      Script: {instanceID: 11646}
     - Class: 114
-      Script: {instanceID: 11648}
+      Script: {instanceID: 11654}
+    - Class: 114
+      Script: {instanceID: 14774}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -406,12 +412,6 @@ ScriptsOnlyBuild:
     className: AudioDialog
   - hash:
       serializedVersion: 2
-      Hash: de0804468faeb35ff2cae41f362c7695
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: LightManager
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -454,6 +454,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: 74e2f7e563cdbfc3c24228a77f135c16
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ReplaceTri
+  - hash:
+      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -464,6 +470,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 23ede812383cd63f27b330a881518f66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioManager
   - hash:
       serializedVersion: 2
       Hash: 556de5e21632744ca720a2261ed5e750
@@ -550,7 +562,7 @@ ScriptsOnlyBuild:
     className: Triangle
   - hash:
       serializedVersion: 2
-      Hash: 6577f5e18999c80853b944512fb27961
+      Hash: 9b51055a0d2ee5e5f70a6031144d722d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIHideScript
@@ -574,7 +586,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: d894941fb86943a710cce1e4cdbcebb8
+      Hash: 8dd94ec69912cd8c432b669c921ade42
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Local
@@ -682,7 +694,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: a45055bd15553854bd4d604140249a21
+      Hash: 0dc0211dfb320f4f819930f09c7cfb23
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PopupControl
@@ -707,4 +719,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/osu!trigen.unity
-  playerPath: G:/! osu!trigen exports/1.0.3/osu!trigen.exe
+  playerPath: G:/! osu!trigen exports/1.1/osu!trigen.exe

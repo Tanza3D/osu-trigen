@@ -82,12 +82,25 @@ public class Local : MonoBehaviour
     public string IT_HideUI;
     public string IT_DevelopmentBuildHeader;
 
+    public string NL_MainControls;
+    public string NL_TriSpawnSpeed;
+    public string NL_TriSpeed;
+    public string NL_TriOpacity;
+    public string NL_TriSizeMin;
+    public string NL_TriSizeMax;
+    public string NL_SaveConf;
+    public string NL_LoadConf;
+    public string NL_ResetTri;
+    public string NL_ColourPick;
+    public string NL_HideUI;
+    public string NL_DevelopmentBuildHeader;
+
     public Button FN_But;
     public Button RU_But;
     public Button EN_But;
     public Button CZ_But;
     public Button IT_But;
-
+    public Button NL_But;
 
 
     // Start is called before the first frame update
@@ -105,6 +118,19 @@ public class Local : MonoBehaviour
         EN_ColourPick = "Colour Picker";
         EN_HideUI = "Hide UI";
         EN_DevelopmentBuildHeader = "Development Build";
+
+        NL_MainControls = "Algemene Besturing";
+        NL_TriSpawnSpeed = "Driehoek Spawn-Snelheid";
+        NL_TriSpeed = "Driehoek Snelheid";
+        NL_TriOpacity = "Driehoek Doorzichtigheid";
+        NL_TriSizeMin = "Minimale Driehoek Grote";
+        NL_TriSizeMax = "Maximale Driehoek Grote";
+        NL_SaveConf = "Configuratie Opslaan";
+        NL_LoadConf = "Configuratie Laden";
+        NL_ResetTri = "Driehoeken Resetten";
+        NL_ColourPick = "Kleuren Kiezer";
+        NL_HideUI = "Verberg UI";
+        NL_DevelopmentBuildHeader = "Ontwikkelings Versie";
 
         RU_MainControls = "Основные Параметры";
         RU_TriSpawnSpeed = "Скорость Появления";
@@ -177,6 +203,9 @@ public class Local : MonoBehaviour
 
         Button itbtn = IT_But.GetComponent<Button>();
         itbtn.onClick.AddListener(itSWITCH);
+
+        Button nlbut = NL_But.GetComponent<Button>();
+        nlbut.onClick.AddListener(nlSWITCH);
     }
 
     void enSWITCH()
@@ -193,6 +222,21 @@ public class Local : MonoBehaviour
         ColourPick.text = EN_ColourPick;
         HideUI.text = EN_HideUI;
         DevelopmentBuildHeader.text = EN_DevelopmentBuildHeader;
+    }
+
+    void nlSWITCH()
+    {
+        MainControls.text = NL_MainControls;
+        TriSpawnSpeed.text = NL_TriSpawnSpeed;
+        TriSpeed.text = NL_TriOpacity;
+        TriSizeMin.text = NL_TriSizeMin;
+        TriSizeMax.text = NL_TriSizeMax;
+        SaveConf.text = NL_SaveConf;
+        LoadConf.text = NL_LoadConf;
+        ResetTri.text = NL_ResetTri;
+        ColourPick.text = NL_ColourPick;
+        HideUI.text = NL_HideUI;
+        DevelopmentBuildHeader.text = NL_DevelopmentBuildHeader;
     }
 
     void ruSWITCH()
