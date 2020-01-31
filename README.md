@@ -1,5 +1,4 @@
-# osu!trigen
-### realtime animated triangles in osu! style
+![Logo](https://i.imgur.com/3Gsf7i8.png)
 
 osu!trigen is an application made in Unity created to make animated triangles without too much stress on the system.
 
@@ -9,6 +8,8 @@ osu!trigen is under the MIT licence. as you can see in the licence page.
 
 ### Find the latest releases [here!](https://github.com/eclipsedteam/osu-trigen/releases/latest)
 
+### Find the website [here!](https://eclipsed.hubza.co.uk/programs/osutrigen)
+
 This was created using the Unity version 2019.3.0a8, but can be downgraded, or upgraded to later versions. We'll soon move to the latest release version of Unity.
 
-## Thanks for checking out osu!trigen!
+![Footer](https://i.imgur.com/JH4YQYO.png)
