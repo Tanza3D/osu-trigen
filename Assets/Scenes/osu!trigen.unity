@@ -3575,7 +3575,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 685737609}
   m_OnClick:
     m_PersistentCalls:
-<<<<<<< HEAD
       m_Calls:
       - m_Target: {fileID: 685737611}
         m_MethodName: LoadTri
@@ -3588,12 +3587,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-=======
-      m_Calls: [{m_Target: {fileID: 685737611}, m_MethodName: LoadTri, m_Mode: 1,
-          m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
-              UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
-            m_BoolArgument: 0}, m_CallState: 2}]
->>>>>>> 167aedea733b70c64db727e89f101f2564bc4098
 --- !u!114 &685737609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3644,7 +3637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triPrefab: {fileID: 1677098539}
   _tri: {fileID: 21300000, guid: f9c03f6ddfce98e458bf3ca1248c5c9f, type: 3}
-<<<<<<< HEAD
 --- !u!1 &767845480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,8 +3714,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767845480}
   m_CullTransparentMesh: 0
-=======
->>>>>>> 167aedea733b70c64db727e89f101f2564bc4098
 --- !u!1 &776109325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5472,7 +5462,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1267488820}
   m_OnClick:
     m_PersistentCalls:
-<<<<<<< HEAD
       m_Calls:
       - m_Target: {fileID: 1267488822}
         m_MethodName: LoadSound
@@ -5485,12 +5474,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-=======
-      m_Calls: [{m_Target: {fileID: 1267488822}, m_MethodName: LoadSound, m_Mode: 1,
-          m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
-              UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
-            m_BoolArgument: 0}, m_CallState: 2}]
->>>>>>> 167aedea733b70c64db727e89f101f2564bc4098
 --- !u!114 &1267488820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8717,7 +8700,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1899985057}
   m_OnClick:
     m_PersistentCalls:
-<<<<<<< HEAD
       m_Calls:
       - m_Target: {fileID: 685737611}
         m_MethodName: ResetTri
@@ -8730,12 +8712,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-=======
-      m_Calls: [{m_Target: {fileID: 685737611}, m_MethodName: ResetTri, m_Mode: 1,
-          m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
-              UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
-            m_BoolArgument: 0}, m_CallState: 2}]
->>>>>>> 167aedea733b70c64db727e89f101f2564bc4098
 --- !u!114 &1899985057
 MonoBehaviour:
   m_ObjectHideFlags: 0

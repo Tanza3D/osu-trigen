@@ -75,14 +75,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
     - _Color1: {r: 1, g: 1, b: 1, a: 1}
     - _Color2: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HSV: {r: 0, g: 0, b: 1, a: 1}
-=======
-    - _Color1: {r: 0.81544435, g: 0.81544435, b: 0.81544435, a: 1}
-    - _Color2: {r: 0.81544435, g: 0, b: 0, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HSV: {r: 0, g: 0.8368885, b: 0.81544435, a: 1}
->>>>>>> 167aedea733b70c64db727e89f101f2564bc4098
