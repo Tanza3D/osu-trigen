@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 5048106504107860607}
   - component: {fileID: 5048106504107860592}
   - component: {fileID: 5048106504107860593}
-  - component: {fileID: -1898065560938345773}
   - component: {fileID: 721770064225118233}
   - component: {fileID: 9093916937531635686}
   m_Layer: 8
@@ -157,6 +156,7 @@ MonoBehaviour:
   hextext: 
   clicked: 0
   hexcodetext: 
+<<<<<<< Updated upstream
 --- !u!114 &
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9add4aa5bc62041ba8a66c56af3c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> Stashed changes
 --- !u!58 &721770064225118233
 CircleCollider2D:
   m_ObjectHideFlags: 0

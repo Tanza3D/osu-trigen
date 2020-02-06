@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using SFB;
-
+using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
 
     public AudioSource _source; //Audio source refernce
     private string _audioLoc; //Audio file location string
 
+    public Button stopwav; // but its a wav
+
+    public void Start()
+    {
+        Debug.Log("start");
+        stopwav.interactable = false;
+        stopwav.onClick.AddListener(stopbutt);
+    }
 
     public void LoadSound()
     {
@@ -40,7 +48,15 @@ public class AudioManager : MonoBehaviour
             {
                 _source.clip = DownloadHandlerAudioClip.GetContent(www); //Assings audio clip
                 _source.Play(); //Plays Sounds
+                stopwav.interactable = true;
             }
         }
+    }
+
+    public void stopbutt()
+    {
+        Debug.Log("trying to stop");
+        stopwav.interactable = false;
+        _source.Stop();
     }
 }

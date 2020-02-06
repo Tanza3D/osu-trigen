@@ -16,14 +16,13 @@ public class SaveDialog : MonoBehaviour
     private string _data = "";
     public Text output;
     public GameObject tri;
-    public UnityEngine.UI.Slider spawnSpeedSlider;
-    public UnityEngine.UI.Slider S_YSpeedMin;
-    public UnityEngine.UI.Slider S_YSpeedMax;
-    public UnityEngine.UI.Slider S_OpacityMin;
-    public UnityEngine.UI.Slider S_OpacityMax;
-    public UnityEngine.UI.Slider S_ScaleMin;
-    public UnityEngine.UI.Slider S_ScaleMax;
-    public UnityEngine.UI.Slider S_SpawnSpeed;
+    public UnityEngine.UI.Slider S_Spawnspeed;
+    public UnityEngine.UI.Slider S_Speed;
+    public UnityEngine.UI.Slider S_Opacity;
+    public UnityEngine.UI.Slider S_Smin;
+    public UnityEngine.UI.Slider S_Smax;
+    public Text hex;
+    public string lang;
     public float SpawnSpeed;
     public float YSpeedMin;
     public float YSpeedMax;
@@ -55,20 +54,6 @@ public class SaveDialog : MonoBehaviour
     {
         SaveButton.onClick.AddListener(SavePressed);
         LoadButton.onClick.AddListener(LoadPressed);
-        S_SpawnSpeed.onValueChanged.AddListener(SET_S_SPAWNSPEED);
-        S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN);
-        S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX);
-        S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN);
-        S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX);
-        S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);
-        S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);
-        SpawnSpeed = S_SpawnSpeed.value;
-        YSpeedMin = S_YSpeedMin.value;
-        YSpeedMax = S_YSpeedMax.value;
-        OpacityMin = S_OpacityMin.value;
-        OpacityMax = S_OpacityMax.value;
-        ScaleMin = S_ScaleMin.value;
-        ScaleMax = S_ScaleMax.value;
         //tri.ScaleMax = 10; // dunno why this is here, not anymore
     }
 
@@ -76,7 +61,15 @@ public class SaveDialog : MonoBehaviour
     void SavePressed()
     {
         // sets string "fileoutput" to all the variablenames and the variables themselves
-        string fileOutput = "SpawnSpeed = " + SpawnSpeed + "\nYSpeedMin = " + YSpeedMin + "\nYSpeedMax = " + YSpeedMax + "\nOpacityMin = " + OpacityMin + "\nOpacityMax = " + OpacityMax + "\nScaleMin = " + ScaleMin + "\nScaleMax = " + ScaleMax;
+        string fileOutput
+            = "spawnspeed = "+ trivars.spawnspeed +
+            "\nspeed = " + trivars.speed +
+            "\nopacity = " + trivars.opacity +
+            "\nsmin = " + trivars.smin +
+            "\nsmax = " + trivars.smax +
+            "\nhex = " + trivars.hex +
+            "\nlang = " + trivars.lang
+            ;
         // opens panel
         var path = StandaloneFileBrowser.SaveFilePanel("Save TriGen config file as .tgcf", "", "config", "tgcf");
         // detects if path is empty 
@@ -118,33 +111,27 @@ public class SaveDialog : MonoBehaviour
                 switch (varName)
                 {
                     // still no clue sorry
-                    case "SpawnSpeed":
-                        S_SpawnSpeed.value = val;
-                        S_SpawnSpeed.onValueChanged.Invoke(val);
+                    case "spawnspeed":
+                        S_Spawnspeed.value = val;
                         break;
-                    case "YSpeedMin":
-                        S_YSpeedMin.value = val;
-                        S_YSpeedMin.onValueChanged.Invoke(val);
+                    case "speed":
+                        S_Speed.value = val;
                         break;
-                    case "YSpeedMax":
-                        S_YSpeedMax.value = val;
-                        S_YSpeedMax.onValueChanged.Invoke(val);
+                    case "opacity":
+                        S_Opacity.value = val;
                         break;
-                    case "OpacityMin":
-                        S_OpacityMin.value = val;
-                        S_OpacityMin.onValueChanged.Invoke(val);
+                    case "smin":
+                        S_Smin.value = val;
                         break;
-                    case "OpacityMax":
-                        S_OpacityMax.value = val;
-                        S_OpacityMax.onValueChanged.Invoke(val);
+                    case "smax":
+                        S_Smax.value = val;
                         break;
-                    case "ScaleMin":
-                        S_ScaleMin.value = val;
-                        S_ScaleMin.onValueChanged.Invoke(val);
+                    // hex and lang not working for now
+                    case "hex":
+                        hex.text = "#ffffff";
                         break;
-                    case "ScaleMax":
-                        S_ScaleMax.value = val;
-                        S_ScaleMax.onValueChanged.Invoke(val);
+                    case "lang":
+                        lang = val.ToString();
                         break;
                     default:
                         Debug.LogError("Unknown variable in config: " + varName);
@@ -158,41 +145,5 @@ public class SaveDialog : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void SET_S_YSMIN(float value)
-    {
-
-        YSpeedMin = value;
-    }
-    void SET_S_YSMAX(float value)
-    {
-
-        YSpeedMax = value;
-    }
-    void SET_S_OMIN(float value)
-    {
-
-        OpacityMin = value;
-    }
-    void SET_S_OMAX(float value)
-    {
-
-        OpacityMax = value;
-    }
-    void SET_S_SMIN(float value)
-    {
-
-        ScaleMin = value;
-    }
-    void SET_S_SMAX(float value)
-    {
-
-        ScaleMax = value;
-    }
-    void SET_S_SPAWNSPEED(float value)
-    {
-
-        SpawnSpeed = value;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Local : MonoBehaviour
 {
+    public Dropdown langdrop;
+
     public Text MainControls;
     public Text TriSpawnSpeed;
     public Text TriSpeed;
@@ -16,6 +18,10 @@ public class Local : MonoBehaviour
     public Text ColourPick;
     public Text HideUI;
     public Text DevelopmentBuildHeader;
+    public Text Website;
+    public Text SourceCode;
+    public Text PrivacyPolicy;
+    public Text Credits;
 
     public string EN_MainControls;
     public string EN_TriSpawnSpeed;
@@ -29,6 +35,10 @@ public class Local : MonoBehaviour
     public string EN_ColourPick;
     public string EN_HideUI;
     public string EN_DevelopmentBuildHeader;
+    public string EN_Website;
+    public string EN_SourceCode;
+    public string EN_PrivacyPolicy;
+    public string EN_Credits;
 
     public string RU_MainControls;
     public string RU_TriSpawnSpeed;
@@ -42,6 +52,10 @@ public class Local : MonoBehaviour
     public string RU_ColourPick;
     public string RU_HideUI;
     public string RU_DevelopmentBuildHeader;
+    public string RU_Website;
+    public string RU_SourceCode;
+    public string RU_PrivacyPolicy;
+    public string RU_Credits;
 
     public string FN_MainControls;
     public string FN_TriSpawnSpeed;
@@ -55,6 +69,10 @@ public class Local : MonoBehaviour
     public string FN_ColourPick;
     public string FN_HideUI;
     public string FN_DevelopmentBuildHeader;
+    public string FN_Website;
+    public string FN_SourceCode;
+    public string FN_PrivacyPolicy;
+    public string FN_Credits;
 
     public string CZ_MainControls;
     public string CZ_TriSpawnSpeed;
@@ -68,6 +86,10 @@ public class Local : MonoBehaviour
     public string CZ_ColourPick;
     public string CZ_HideUI;
     public string CZ_DevelopmentBuildHeader;
+    public string CZ_Website;
+    public string CZ_SourceCode;
+    public string CZ_PrivacyPolicy;
+    public string CZ_Credits;
 
     public string IT_MainControls;
     public string IT_TriSpawnSpeed;
@@ -81,6 +103,10 @@ public class Local : MonoBehaviour
     public string IT_ColourPick;
     public string IT_HideUI;
     public string IT_DevelopmentBuildHeader;
+    public string IT_Website;
+    public string IT_SourceCode;
+    public string IT_PrivacyPolicy;
+    public string IT_Credits;
 
     public string NL_MainControls;
     public string NL_TriSpawnSpeed;
@@ -94,18 +120,73 @@ public class Local : MonoBehaviour
     public string NL_ColourPick;
     public string NL_HideUI;
     public string NL_DevelopmentBuildHeader;
+    public string NL_Website;
+    public string NL_SourceCode;
+    public string NL_PrivacyPolicy;
+    public string NL_Credits;
 
-    public Button FN_But;
-    public Button RU_But;
-    public Button EN_But;
-    public Button CZ_But;
-    public Button IT_But;
-    public Button NL_But;
+    public string ES_MainControls;
+    public string ES_TriSpawnSpeed;
+    public string ES_TriSpeed;
+    public string ES_TriOpacity;
+    public string ES_TriSizeMin;
+    public string ES_TriSizeMax;
+    public string ES_SaveConf;
+    public string ES_LoadConf;
+    public string ES_ResetTri;
+    public string ES_ColourPick;
+    public string ES_HideUI;
+    public string ES_DevelopmentBuildHeader;
+    public string ES_Website;
+    public string ES_SourceCode;
+    public string ES_PrivacyPolicy;
+    public string ES_Credits;
+
+    public string DE_MainControls;
+    public string DE_TriSpawnSpeed;
+    public string DE_TriSpeed;
+    public string DE_TriOpacity;
+    public string DE_TriSizeMin;
+    public string DE_TriSizeMax;
+    public string DE_SaveConf;
+    public string DE_LoadConf;
+    public string DE_ResetTri;
+    public string DE_ColourPick;
+    public string DE_HideUI;
+    public string DE_DevelopmentBuildHeader;
+    public string DE_Website;
+    public string DE_SourceCode;
+    public string DE_PrivacyPolicy;
+    public string DE_Credits;
+
+    public string FR_MainControls;
+    public string FR_TriSpawnSpeed;
+    public string FR_TriSpeed;
+    public string FR_TriOpacity;
+    public string FR_TriSizeMin;
+    public string FR_TriSizeMax;
+    public string FR_SaveConf;
+    public string FR_LoadConf;
+    public string FR_ResetTri;
+    public string FR_ColourPick;
+    public string FR_HideUI;
+    public string FR_DevelopmentBuildHeader;
+    public string FR_Website;
+    public string FR_SourceCode;
+    public string FR_PrivacyPolicy;
+    public string FR_Credits;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        langdrop.onValueChanged.AddListener(delegate {
+            langchange(langdrop);
+        });
+
+
+
         EN_MainControls = "Main Controls";
         EN_TriSpawnSpeed = "Triangle Spawnspeed";
         EN_TriSpeed = "Triangle Speed";
@@ -118,6 +199,10 @@ public class Local : MonoBehaviour
         EN_ColourPick = "Colour Picker";
         EN_HideUI = "Hide UI";
         EN_DevelopmentBuildHeader = "Development Build";
+        EN_Website = "Website";
+        EN_SourceCode = "Source Code";
+        EN_PrivacyPolicy = "Privacy Policy";
+        EN_Credits = "Credits";
 
         NL_MainControls = "Algemene Besturing";
         NL_TriSpawnSpeed = "Driehoek Spawn-Snelheid";
@@ -131,6 +216,11 @@ public class Local : MonoBehaviour
         NL_ColourPick = "Kleuren Kiezer";
         NL_HideUI = "Verberg UI";
         NL_DevelopmentBuildHeader = "Ontwikkelings Versie";
+        //undone
+        NL_Website = "Website";
+        NL_SourceCode = "Source Code";
+        NL_PrivacyPolicy = "Privacy Policy";
+        NL_Credits = "Credits";
 
         RU_MainControls = "Основные Параметры";
         RU_TriSpawnSpeed = "Скорость Появления";
@@ -144,6 +234,10 @@ public class Local : MonoBehaviour
         RU_ColourPick = "Палитра";
         RU_HideUI = "Скрыть Интерфейс";
         RU_DevelopmentBuildHeader = "Бета Версия";
+        RU_Website = "Сайт";
+        RU_SourceCode = "Исходный Код";
+        RU_PrivacyPolicy = "Политика Конфиденциальности";
+        RU_Credits = "Создатели";
 
         FN_MainControls = "Pää Kontrollit";
         FN_TriSpawnSpeed = "Kolmion LuomisNopeus";
@@ -157,6 +251,11 @@ public class Local : MonoBehaviour
         FN_ColourPick = "Väri valitsin";
         FN_HideUI = "Piilota UI";
         FN_DevelopmentBuildHeader = "Kehitys";
+        //undone
+        FN_Website = "Website";
+        FN_SourceCode = "Source Code";
+        FN_PrivacyPolicy = "Privacy Policy";
+        FN_Credits = "Credits";
 
         CZ_MainControls = "Hlavní ovládání"; //Main Controls
         CZ_TriSpawnSpeed = "Rychlost generace trojúhelníkú"; //Triangle Speed
@@ -170,6 +269,11 @@ public class Local : MonoBehaviour
         CZ_ColourPick = "Výběr barev"; //Colour Picker
         CZ_HideUI = "Schovat uživatelské prostředí"; //Hide UI
         CZ_DevelopmentBuildHeader = "Testovací sestavení"; //Development Build
+        //undone
+        CZ_Website = "Website";
+        CZ_SourceCode = "Source Code";
+        CZ_PrivacyPolicy = "Privacy Policy";
+        CZ_Credits = "Credits";
 
         IT_MainControls = "Controlli Principali";
         IT_TriSpawnSpeed = "Velocità di spawn dei triangoli";
@@ -183,29 +287,69 @@ public class Local : MonoBehaviour
         IT_ColourPick = "Selezione colore";
         IT_HideUI = "Nascondi Interfaccia";
         IT_DevelopmentBuildHeader = "Versione Sperimentale";
+        //undone
+        IT_Website = "Website";
+        IT_SourceCode = "Source Code";
+        IT_PrivacyPolicy = "Privacy Policy";
+        IT_Credits = "Credits";
 
+        ES_MainControls = "Controles principales";
+        ES_TriSpawnSpeed = "Velocidad de generación de los triángulos";
+        ES_TriSpeed = "Velocidad de los triángulos";
+        ES_TriOpacity = "Opacidad de los triángulos";
+        ES_TriSizeMin = "Tamaño de los triángulos Mín";
+        ES_TriSizeMax = "Tamaño de los triángulos Máx";
+        ES_SaveConf = "Guardar configuración";
+        ES_LoadConf = "Cargar configuración";
+        ES_ResetTri = "Restablecer triángulos";
+        ES_ColourPick = "Selector de color";
+        ES_HideUI = "Esconder interfaz";
+        ES_DevelopmentBuildHeader = "Versión de desarrollo";
+        ES_Website = "Página web";
+        ES_SourceCode = "Código fuente";
+        ES_PrivacyPolicy = "Política de privacidad";
+        ES_Credits = "Créditos";
+
+        DE_MainControls = "Hauptsteuerung";
+        DE_TriSpawnSpeed = "Dreieck Erscheinungsgeschwindigkeit";
+        DE_TriSpeed = "Dreiecksgeschwindigkeit";
+        DE_TriOpacity = "Dreieckstrübung";
+        DE_TriSizeMin = "Dreiecksgröße Min";
+        DE_TriSizeMax = "Dreiecksgröße Max";
+        DE_SaveConf = "Einstellungen speichern";
+        DE_LoadConf = "Einstellungen laden";
+        DE_ResetTri = "Dreiecke zurücksetzen";
+        DE_ColourPick = "Farbauswahl";
+        DE_HideUI = "UI verstecken";
+        DE_DevelopmentBuildHeader = "Development Build";
+        //undone
+        DE_Website = "Website";
+        DE_SourceCode = "Source Code";
+        DE_PrivacyPolicy = "Privacy Policy";
+        DE_Credits = "Credits";
+
+        FR_MainControls = "Controles principaux";
+        FR_TriSpawnSpeed = "Vitesse d'engendrement";
+        FR_TriSpeed = "Velocité des triangles";
+        FR_TriOpacity = "Opacité  des triangles";
+        FR_TriSizeMin = "Taille minimum des triangles";
+        FR_TriSizeMax = "Taille maximum des triangles";
+        FR_SaveConf = "Enregistrer la configuration";
+        FR_LoadConf = "Charger une configuration";
+        FR_ResetTri = "Réinitialiser les triangles";
+        FR_ColourPick = "Sélecteur de couleurs";
+        FR_HideUI = "Cacher l'interface";
+        FR_DevelopmentBuildHeader = "Build de développement";
+        FR_Website = "Site Internet";
+        FR_SourceCode = "Code source";
+        FR_PrivacyPolicy = "Police de confidentialité";
+        FR_Credits = "Crédits";
     }
 
     // Update is called once per frame
     void Update()
     {
-        Button enbtn = EN_But.GetComponent<Button>();
-        enbtn.onClick.AddListener(enSWITCH);
 
-        Button rubtn = RU_But.GetComponent<Button>();
-        rubtn.onClick.AddListener(ruSWITCH);
-
-        Button fnbtn = FN_But.GetComponent<Button>();
-        fnbtn.onClick.AddListener(fnSWITCH);
-
-        Button czbtn = CZ_But.GetComponent<Button>();
-        czbtn.onClick.AddListener(czSWITCH);
-
-        Button itbtn = IT_But.GetComponent<Button>();
-        itbtn.onClick.AddListener(itSWITCH);
-
-        Button nlbut = NL_But.GetComponent<Button>();
-        nlbut.onClick.AddListener(nlSWITCH);
     }
 
     void enSWITCH()
@@ -226,9 +370,11 @@ public class Local : MonoBehaviour
 
     void nlSWITCH()
     {
+        // missing speed translation
         MainControls.text = NL_MainControls;
         TriSpawnSpeed.text = NL_TriSpawnSpeed;
-        TriSpeed.text = NL_TriOpacity;
+        TriSpeed.text = EN_TriSpeed;
+        TriOpacity.text = NL_TriOpacity;
         TriSizeMin.text = NL_TriSizeMin;
         TriSizeMax.text = NL_TriSizeMax;
         SaveConf.text = NL_SaveConf;
@@ -237,6 +383,23 @@ public class Local : MonoBehaviour
         ColourPick.text = NL_ColourPick;
         HideUI.text = NL_HideUI;
         DevelopmentBuildHeader.text = NL_DevelopmentBuildHeader;
+    }
+
+    void deSWITCH()
+    {
+        // missing speed translation
+        MainControls.text = DE_MainControls;
+        TriSpawnSpeed.text = DE_TriSpawnSpeed;
+        TriSpeed.text = EN_TriSpeed;
+        TriOpacity.text = DE_TriOpacity;
+        TriSizeMin.text = DE_TriSizeMin;
+        TriSizeMax.text = DE_TriSizeMax;
+        SaveConf.text = DE_SaveConf;
+        LoadConf.text = DE_LoadConf;
+        ResetTri.text = DE_ResetTri;
+        ColourPick.text = DE_ColourPick;
+        HideUI.text = DE_HideUI;
+        DevelopmentBuildHeader.text = DE_DevelopmentBuildHeader;
     }
 
     void ruSWITCH()
@@ -301,5 +464,79 @@ public class Local : MonoBehaviour
         ColourPick.text = IT_ColourPick;
         HideUI.text = IT_HideUI;
         DevelopmentBuildHeader.text = IT_DevelopmentBuildHeader;
+    }
+
+    void esSWITCH()
+    {
+        MainControls.text = ES_MainControls;
+        TriSpawnSpeed.text = ES_TriSpawnSpeed;
+        TriSpeed.text = ES_TriSpeed;
+        TriOpacity.text = ES_TriOpacity;
+        TriSizeMin.text = ES_TriSizeMin;
+        TriSizeMax.text = ES_TriSizeMax;
+        SaveConf.text = ES_SaveConf;
+        LoadConf.text = ES_LoadConf;
+        ResetTri.text = ES_ResetTri;
+        ColourPick.text = ES_ColourPick;
+        HideUI.text = ES_HideUI;
+        DevelopmentBuildHeader.text = ES_DevelopmentBuildHeader;
+    }
+
+    void frSWITCH()
+    {
+        MainControls.text = FR_MainControls;
+        TriSpawnSpeed.text = FR_TriSpawnSpeed;
+        TriSpeed.text = FR_TriSpeed;
+        TriOpacity.text = FR_TriOpacity;
+        TriSizeMin.text = FR_TriSizeMin;
+        TriSizeMax.text = FR_TriSizeMax;
+        SaveConf.text = FR_SaveConf;
+        LoadConf.text = FR_LoadConf;
+        ResetTri.text = FR_ResetTri;
+        ColourPick.text = FR_ColourPick;
+        HideUI.text = FR_HideUI;
+        DevelopmentBuildHeader.text = FR_DevelopmentBuildHeader;
+    }
+
+    private void langchange(Dropdown target)
+    {
+        Debug.Log("selected: " + target.value);
+
+        if(target.value == 0)
+        {
+            enSWITCH();
+        }
+        if (target.value == 1)
+        {
+            fnSWITCH();
+        }
+        if (target.value == 2)
+        {
+            itSWITCH();
+        }
+        if (target.value == 3)
+        {
+            ruSWITCH();
+        }
+        if (target.value == 4)
+        {
+            nlSWITCH();
+        }
+        if (target.value == 5)
+        {
+            czSWITCH();
+        }
+        if (target.value == 6 )
+        {
+            esSWITCH();
+        }
+        if (target.value == 7)
+        {
+            deSWITCH();
+        }
+        if (target.value == 8)
+        {
+            frSWITCH();
+        }
     }
 }
