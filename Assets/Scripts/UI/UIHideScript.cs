@@ -23,6 +23,8 @@ public class UIHideScript : MonoBehaviour
     public UnityEngine.UI.Slider S_Smin;
     public UnityEngine.UI.Slider S_Smax;
 
+    public UnityEngine.UI.Text hextext;
+
     public GameObject resetbgbutt;
 
     public Button resettributt;

@@ -48,6 +48,8 @@ public class setvar : MonoBehaviour
         trivars.smax = S_ScaleMax.value;
         trivars.hex = hex.text;
 
+        trivars.hex = trivars.hex.Replace("#", "");
+
         triamount = GameObject.FindGameObjectsWithTag("Triangle").Length;
 
         debug.text = 

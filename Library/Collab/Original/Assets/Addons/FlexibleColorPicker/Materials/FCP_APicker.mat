@@ -75,14 +75,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< Updated upstream
-    - _Color1: {r: 0.30433312, g: 0.1984253, b: 0.1984253, a: 0}
-    - _Color2: {r: 0.30433312, g: 0.1984253, b: 0.1984253, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HSV: {r: 0, g: 0.34799966, b: 0.30433312, a: 1}
-=======
     - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HSV: {r: 0.6311109, g: 0, b: 1, a: 1}
->>>>>>> Stashed changes

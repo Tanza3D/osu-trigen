@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using SFB;
 using UnityEngine.UI;
+using NAudio;
+
 public class AudioManager : MonoBehaviour
 {
 
@@ -23,7 +25,7 @@ public class AudioManager : MonoBehaviour
     {
         var extensions = new[] 
         {
-            new ExtensionFilter("Sound Files", "wav" ), //Sets file extentions
+            new ExtensionFilter("Sound Files", "wav", "mp3" ), //Sets file extentions
         };
 
         var paths = StandaloneFileBrowser.OpenFilePanel("Open Audio File", "", extensions, true); //Opens file browser with set extensions

@@ -23,6 +23,7 @@ public class SaveDialog : MonoBehaviour
     public UnityEngine.UI.Slider S_Smax;
     public Text hex;
     public string lang;
+    public string result;
     public float SpawnSpeed;
     public float YSpeedMin;
     public float YSpeedMax;
@@ -41,6 +42,7 @@ public class SaveDialog : MonoBehaviour
     public float FinalSpeed;
     public float FinalScale;
     public float FinalOpacity;
+    public bool tryparsething;
 
     //S_YSpeedMin;
     //S_YSpeedMax;
@@ -52,6 +54,7 @@ public class SaveDialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hex.text = "#ABCDEF";
         SaveButton.onClick.AddListener(SavePressed);
         LoadButton.onClick.AddListener(LoadPressed);
         //tri.ScaleMax = 10; // dunno why this is here, not anymore
@@ -60,6 +63,7 @@ public class SaveDialog : MonoBehaviour
 
     void SavePressed()
     {
+        
         // sets string "fileoutput" to all the variablenames and the variables themselves
         string fileOutput
             = "spawnspeed = "+ trivars.spawnspeed +
@@ -93,19 +97,23 @@ public class SaveDialog : MonoBehaviour
             foreach (string line in File.ReadLines(paths[0]))
             {
                 float val = 0.0f; // sets val to 0.0, obvious
+                string result = "RESULT"; //sets the string result to result, obvious
                 string varName = ""; // sets varname to nothing.
+                string varValue = ""; // NEW: Move VarValue up here so it can be read from the switch
+
                 try // tries something
                 {
                     // from this point on i have no clue
                     varName = line.Substring(0, line.IndexOf("="));
                     varName = varName.Trim();
-                    string varValue = line.Substring(line.IndexOf("=") + 1);
+                    varValue = line.Substring(line.IndexOf("=") + 1);
                     varValue = varValue.Trim();
-                    val = float.Parse(varValue);
+                    tryparsething = float.TryParse(varValue, out val); // NEW: TryParse doesn't throw exception on fail...
+                    result = varValue;
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogError("Syntax error in config file" + e.Message);
+                    Debug.LogError("Syntax error in config file: " + e.Message);
                     return;
                 }
                 switch (varName)
@@ -128,10 +136,12 @@ public class SaveDialog : MonoBehaviour
                         break;
                     // hex and lang not working for now
                     case "hex":
-                        hex.text = "#ffffff";
+                        Debug.Log(varValue);
+                        //hex.text = varValue;
+                        hex.text = "#ABCDEF";
                         break;
                     case "lang":
-                        lang = val.ToString();
+                        lang = varValue;
                         break;
                     default:
                         Debug.LogError("Unknown variable in config: " + varName);
@@ -140,6 +150,7 @@ public class SaveDialog : MonoBehaviour
             }
         }
     }
+
 
     // Update is called once per frame
     void Update()

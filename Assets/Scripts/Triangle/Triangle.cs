@@ -143,7 +143,7 @@ public class Triangle : MonoBehaviour
     }
     void updatecolor()
     {
-        string hextext = osumodecontroller.hex; // set "hextext" as the global variable hex (its a string, ex: AABBCC)
+        string hextext = trivars.hex; // set "hextext" as the global variable hex (its a string, ex: AABBCC)
         byte[] colors = ConvertHexStringToByteArray(hextext); // sets "colors" to the hex, converted to byte array
 
         // colors[0] red
