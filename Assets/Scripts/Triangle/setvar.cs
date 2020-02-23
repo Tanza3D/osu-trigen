@@ -48,6 +48,8 @@ public class setvar : MonoBehaviour
         trivars.smax = S_ScaleMax.value;
         trivars.hex = hex.text;
 
+        hex.text = "owo";
+
         trivars.hex = trivars.hex.Replace("#", "");
 
         triamount = GameObject.FindGameObjectsWithTag("Triangle").Length;
@@ -64,7 +66,9 @@ public class setvar : MonoBehaviour
             + "\nO_SizeMin: " + trivars.orig_smin.ToString()
             + "\nO_SizeMax: " + trivars.orig_smax.ToString()
             + "\nHex: " + trivars.hex
+            + "\nHexText: " + hex.text
             + "\nTriAmount: " + triamount
+            + "\nPNG Path: " + trivars.pngpath
             ;
     }
 }

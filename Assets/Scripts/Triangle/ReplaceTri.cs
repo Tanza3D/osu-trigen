@@ -20,6 +20,7 @@ public class ReplaceTri : MonoBehaviour
         if (paths.Length == 1) //Checks To See if only 1 file selected
         {
             string loc = "file://" + paths[0]; //Changes the file path into a form that unity recognises
+            trivars.pngpath = loc.Replace("file://","");
             _imgLoc = loc; //terrible way to make a string global, i cba redoing it. its late :) <3
             StartCoroutine(GetSprite()); //Starts co-routine to change sprites
         }

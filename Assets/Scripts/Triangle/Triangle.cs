@@ -71,7 +71,7 @@ public class Triangle : MonoBehaviour
     public void Init()
     {
         byte[] colors = ConvertHexStringToByteArray("FFAB02"); //converts hex to rgb
-        randomadd = UnityEngine.Random.Range(-0.07f, 0.07f); // sets randomadd to add to value in updatecolor()
+        randomadd = UnityEngine.Random.Range(-0.06f, 0.06f); // sets randomadd to add to value in updatecolor()
         updatecolor(); // run updatecolor to update the triangle colour at init
         m_Collider = GetComponent<Collider>(); // set collider
         clicked = 0; // set clicked to 0
@@ -144,6 +144,16 @@ public class Triangle : MonoBehaviour
     void updatecolor()
     {
         string hextext = trivars.hex; // set "hextext" as the global variable hex (its a string, ex: AABBCC)
+        if (hextext.Length < 6)
+        {
+            int i = 0;
+            int adon = 6 - hextext.Length;
+            while (i < adon)
+            {
+                hextext = hextext + "0";
+                i++;
+            }
+        }
         byte[] colors = ConvertHexStringToByteArray(hextext); // sets "colors" to the hex, converted to byte array
 
         // colors[0] red
@@ -155,7 +165,7 @@ public class Triangle : MonoBehaviour
         float h, s, v; // makes 3 floats
         Color.RGBToHSV(c, out h, out s, out v); // converts color "c" to HSV
         
-        v += randomadd; // adds "randomadd" (randomized at init) to "v"
+        v += (randomadd); // adds "randomadd" (randomized at init) to "v"
         v = Mathf.Clamp(v, 0.00f, 1.00f); // clamps it to 0-1, so it doesn't get too large
         Color c2 = Color.HSVToRGB(h, s, v); // converts back to RGB
         Color32 finalColor = new Color32((byte)(c2.r * 255), (byte)(c2.g * 255), (byte)(c2.b * 255), 255); // sets finalcolor to c2.r, c2.g, and c2.b timsed by 255

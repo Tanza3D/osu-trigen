@@ -22,7 +22,7 @@ public class ResetTri : MonoBehaviour
         
     }
 
-    void ResetTria()
+    public void ResetTria()
     {
         GameObject[] tris;
 

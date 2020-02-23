@@ -11,6 +11,7 @@ public static class trivars
     public static float smax = 0f;
     public static string hex = "#000000";
     public static string lang = "EN";
+    public static string pngpath = "PNG NOT SET";
 
     public static float  orig_spawnspeed = 0f;
     public static float  orig_speed = 0f;

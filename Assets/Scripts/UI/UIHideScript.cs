@@ -40,6 +40,8 @@ public class UIHideScript : MonoBehaviour
         delTriButton.onClick.AddListener(DelTri);
         resettributt.onClick.AddListener(ResetTriOptions);
         delallbutt.onClick.AddListener(delalltri);
+
+        
     }
 
 

@@ -39,6 +39,16 @@ public class background : MonoBehaviour
     void updatecolor()
     {
         string hextext = trivars.hex; // set "hextext" as the global variable hex (its a string, ex: AABBCC)
+        if (hextext.Length < 6)
+        {
+            int i = 0;
+            int adon = 6 - hextext.Length;
+            while (i < adon)
+            {
+                hextext = hextext + "0";
+                i++;
+            }
+        }
         byte[] colors = ConvertHexStringToByteArray(hextext); // sets "colors" to the hex, converted to byte array
 
         // colors[0] red

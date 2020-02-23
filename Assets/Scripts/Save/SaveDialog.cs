@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using SFB;
+
+
+using UnityEngine.Networking;
+
 using System.IO;
 
 public class SaveDialog : MonoBehaviour
@@ -21,7 +25,7 @@ public class SaveDialog : MonoBehaviour
     public UnityEngine.UI.Slider S_Opacity;
     public UnityEngine.UI.Slider S_Smin;
     public UnityEngine.UI.Slider S_Smax;
-    public Text hex;
+    public InputField hex;
     public string lang;
     public string result;
     public float SpawnSpeed;
@@ -30,6 +34,9 @@ public class SaveDialog : MonoBehaviour
     public float OpacityMin;
     public float OpacityMax;
     public float ScaleMin;
+
+    public string thepngpath;
+
     public float ScaleMax;
     public float BackgroundHex;
     public float LoadedSpawnSpeed;
@@ -44,6 +51,11 @@ public class SaveDialog : MonoBehaviour
     public float FinalOpacity;
     public bool tryparsething;
 
+    // tri replacement
+    public GameObject _triPrefab; //Reference To Prefab
+    private string _imgLoc; //String to save file path
+    public Sprite _tri; //Original Sprite
+
     //S_YSpeedMin;
     //S_YSpeedMax;
     //S_OpacityMin;
@@ -54,14 +66,13 @@ public class SaveDialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hex.text = "#ABCDEF";
         SaveButton.onClick.AddListener(SavePressed);
         LoadButton.onClick.AddListener(LoadPressed);
         //tri.ScaleMax = 10; // dunno why this is here, not anymore
     }
 
 
-    void SavePressed()
+    public void SavePressed()
     {
         
         // sets string "fileoutput" to all the variablenames and the variables themselves
@@ -72,6 +83,7 @@ public class SaveDialog : MonoBehaviour
             "\nsmin = " + trivars.smin +
             "\nsmax = " + trivars.smax +
             "\nhex = " + trivars.hex +
+            "\npngpath = " + trivars.pngpath +
             "\nlang = " + trivars.lang
             ;
         // opens panel
@@ -84,7 +96,7 @@ public class SaveDialog : MonoBehaviour
         }
         print("Save has been Pressed"); //needs to be a debug log now
     }
-    void LoadPressed()
+    public void LoadPressed()
     {
         // opens browser
         var paths = StandaloneFileBrowser.OpenFilePanel("Load Trigen config file (.tgcf)", "", "tgcf", false);
@@ -137,8 +149,12 @@ public class SaveDialog : MonoBehaviour
                     // hex and lang not working for now
                     case "hex":
                         Debug.Log(varValue);
-                        //hex.text = varValue;
-                        hex.text = "#ABCDEF";
+                        hex.text = varValue;
+                        break;
+                    case "pngpath":
+                        Debug.Log(varValue);
+                        thepngpath = varValue;
+                        LoadTri(thepngpath);
                         break;
                     case "lang":
                         lang = varValue;
@@ -147,6 +163,39 @@ public class SaveDialog : MonoBehaviour
                         Debug.LogError("Unknown variable in config: " + varName);
                         break;
                 }
+                
+            }
+        }
+    }
+
+    public void LoadTri(string lepath)
+    {
+            string loc = "file://" + lepath; //Changes the file path into a form that unity recognises
+            trivars.pngpath = loc;
+            Debug.Log("loc: " + loc);
+            _imgLoc = loc; //terrible way to make a string global, i cba redoing it. its late :) <3
+            StartCoroutine(GetSprite()); //Starts co-routine to change sprites
+    }
+    IEnumerator GetSprite()
+    {
+        Debug.Log("imgloc: " + _imgLoc);
+        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(_imgLoc)) //"Downloads" (unity be stupid), the texture so we can create it _imgLoc is the filepath for the opened image
+        {
+            yield return www.SendWebRequest(); //Sends request to get image file
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error); //error return stuffs
+            }
+            else
+            {
+                Rect rect = new Rect(); //Creates new rect for texture
+                rect.x = 0; //init stuff
+                rect.y = 0; //^^
+                rect.width = DownloadHandlerTexture.GetContent(www).width; //Sets the rect dimensions to image resolution
+                rect.height = DownloadHandlerTexture.GetContent(www).height; //^^
+                Sprite sprite = Sprite.Create(DownloadHandlerTexture.GetContent(www), rect, new Vector2(0.5f, 0.5f)); //Creates new sprite
+                _triPrefab.GetComponent<SpriteRenderer>().sprite = sprite; //Overrites the tri prefab sprite
+                _triPrefab.GetComponent<Triangle>().trianglespr = sprite; //^^
             }
         }
     }
@@ -155,6 +204,6 @@ public class SaveDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

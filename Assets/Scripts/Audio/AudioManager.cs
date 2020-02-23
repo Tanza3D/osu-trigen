@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using SFB;
 using UnityEngine.UI;
-using NAudio;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void stopbutt()
+    public void stopbutt() //haha butt
     {
         Debug.Log("trying to stop");
         stopwav.interactable = false;
