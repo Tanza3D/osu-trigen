@@ -10,6 +10,7 @@ public class PopupControl : MonoBehaviour
     public Button privacybutt;
     public Button websitebutt;
     public Button sourcebutt;
+    public Button reportbutt;
 
     // Start is called before the first frame update
     void Start()
@@ -30,29 +31,35 @@ public class PopupControl : MonoBehaviour
 
         Button sourceclick = sourcebutt.GetComponent<Button>();
         sourceclick.onClick.AddListener(sourcepress);
-    }
 
-    void credpress()
+        Button reportclick = reportbutt.GetComponent<Button>();
+        sourceclick.onClick.AddListener(reportpress);
+    }
+    public void reportpress()
+    {
+        Application.OpenURL("https://github.com/eclipsedteam/osu-trigen/issues/new");
+    }
+    public void credpress()
     {
         GetComponent<CanvasGroup>().alpha = 1;
     }
 
-    void closepress()
+    public void closepress()
     {
         GetComponent<CanvasGroup>().alpha = 0;
     }
 
-    void privacypress()
+    public void privacypress()
     {
         Application.OpenURL("https://eclipsed.hubza.co.uk/programs/osutrigen/trigen-privacy-policy");
     }
 
-    void sourcepress()
+    public void sourcepress()
     {
         Application.OpenURL("https://github.com/eclipsedteam/osu-trigen/");
     }
 
-    void webpress()
+    public void webpress()
     {
         Application.OpenURL("https://eclipsed.hubza.co.uk/programs/osutrigen");
     }

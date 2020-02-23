@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using SFB;
+
+
+using UnityEngine.Networking;
+
 using System.IO;
 
 public class SaveDialog : MonoBehaviour
@@ -16,20 +20,23 @@ public class SaveDialog : MonoBehaviour
     private string _data = "";
     public Text output;
     public GameObject tri;
-    public UnityEngine.UI.Slider spawnSpeedSlider;
-    public UnityEngine.UI.Slider S_YSpeedMin;
-    public UnityEngine.UI.Slider S_YSpeedMax;
-    public UnityEngine.UI.Slider S_OpacityMin;
-    public UnityEngine.UI.Slider S_OpacityMax;
-    public UnityEngine.UI.Slider S_ScaleMin;
-    public UnityEngine.UI.Slider S_ScaleMax;
-    public UnityEngine.UI.Slider S_SpawnSpeed;
+    public UnityEngine.UI.Slider S_Spawnspeed;
+    public UnityEngine.UI.Slider S_Speed;
+    public UnityEngine.UI.Slider S_Opacity;
+    public UnityEngine.UI.Slider S_Smin;
+    public UnityEngine.UI.Slider S_Smax;
+    public InputField hex;
+    public string lang;
+    public string result;
     public float SpawnSpeed;
     public float YSpeedMin;
     public float YSpeedMax;
     public float OpacityMin;
     public float OpacityMax;
     public float ScaleMin;
+
+    public string thepngpath;
+
     public float ScaleMax;
     public float BackgroundHex;
     public float LoadedSpawnSpeed;
@@ -42,6 +49,12 @@ public class SaveDialog : MonoBehaviour
     public float FinalSpeed;
     public float FinalScale;
     public float FinalOpacity;
+    public bool tryparsething;
+
+    // tri replacement
+    public GameObject _triPrefab; //Reference To Prefab
+    private string _imgLoc; //String to save file path
+    public Sprite _tri; //Original Sprite
 
     //S_YSpeedMin;
     //S_YSpeedMax;
@@ -55,28 +68,24 @@ public class SaveDialog : MonoBehaviour
     {
         SaveButton.onClick.AddListener(SavePressed);
         LoadButton.onClick.AddListener(LoadPressed);
-        S_SpawnSpeed.onValueChanged.AddListener(SET_S_SPAWNSPEED);
-        S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN);
-        S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX);
-        S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN);
-        S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX);
-        S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);
-        S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);
-        SpawnSpeed = S_SpawnSpeed.value;
-        YSpeedMin = S_YSpeedMin.value;
-        YSpeedMax = S_YSpeedMax.value;
-        OpacityMin = S_OpacityMin.value;
-        OpacityMax = S_OpacityMax.value;
-        ScaleMin = S_ScaleMin.value;
-        ScaleMax = S_ScaleMax.value;
         //tri.ScaleMax = 10; // dunno why this is here, not anymore
     }
 
 
-    void SavePressed()
+    public void SavePressed()
     {
+        
         // sets string "fileoutput" to all the variablenames and the variables themselves
-        string fileOutput = "SpawnSpeed = " + SpawnSpeed + "\nYSpeedMin = " + YSpeedMin + "\nYSpeedMax = " + YSpeedMax + "\nOpacityMin = " + OpacityMin + "\nOpacityMax = " + OpacityMax + "\nScaleMin = " + ScaleMin + "\nScaleMax = " + ScaleMax;
+        string fileOutput
+            = "spawnspeed = "+ trivars.spawnspeed +
+            "\nspeed = " + trivars.speed +
+            "\nopacity = " + trivars.opacity +
+            "\nsmin = " + trivars.smin +
+            "\nsmax = " + trivars.smax +
+            "\nhex = " + trivars.hex +
+            "\npngpath = " + trivars.pngpath +
+            "\nlang = " + trivars.lang
+            ;
         // opens panel
         var path = StandaloneFileBrowser.SaveFilePanel("Save TriGen config file as .tgcf", "", "config", "tgcf");
         // detects if path is empty 
@@ -87,7 +96,7 @@ public class SaveDialog : MonoBehaviour
         }
         print("Save has been Pressed"); //needs to be a debug log now
     }
-    void LoadPressed()
+    public void LoadPressed()
     {
         // opens browser
         var paths = StandaloneFileBrowser.OpenFilePanel("Load Trigen config file (.tgcf)", "", "tgcf", false);
@@ -100,99 +109,101 @@ public class SaveDialog : MonoBehaviour
             foreach (string line in File.ReadLines(paths[0]))
             {
                 float val = 0.0f; // sets val to 0.0, obvious
+                string result = "RESULT"; //sets the string result to result, obvious
                 string varName = ""; // sets varname to nothing.
+                string varValue = ""; // NEW: Move VarValue up here so it can be read from the switch
+
                 try // tries something
                 {
                     // from this point on i have no clue
                     varName = line.Substring(0, line.IndexOf("="));
                     varName = varName.Trim();
-                    string varValue = line.Substring(line.IndexOf("=") + 1);
+                    varValue = line.Substring(line.IndexOf("=") + 1);
                     varValue = varValue.Trim();
-                    val = float.Parse(varValue);
+                    tryparsething = float.TryParse(varValue, out val); // NEW: TryParse doesn't throw exception on fail...
+                    result = varValue;
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogError("Syntax error in config file" + e.Message);
+                    Debug.LogError("Syntax error in config file: " + e.Message);
                     return;
                 }
                 switch (varName)
                 {
                     // still no clue sorry
-                    case "SpawnSpeed":
-                        S_SpawnSpeed.value = val;
-                        S_SpawnSpeed.onValueChanged.Invoke(val);
+                    case "spawnspeed":
+                        S_Spawnspeed.value = val;
                         break;
-                    case "YSpeedMin":
-                        S_YSpeedMin.value = val;
-                        S_YSpeedMin.onValueChanged.Invoke(val);
+                    case "speed":
+                        S_Speed.value = val;
                         break;
-                    case "YSpeedMax":
-                        S_YSpeedMax.value = val;
-                        S_YSpeedMax.onValueChanged.Invoke(val);
+                    case "opacity":
+                        S_Opacity.value = val;
                         break;
-                    case "OpacityMin":
-                        S_OpacityMin.value = val;
-                        S_OpacityMin.onValueChanged.Invoke(val);
+                    case "smin":
+                        S_Smin.value = val;
                         break;
-                    case "OpacityMax":
-                        S_OpacityMax.value = val;
-                        S_OpacityMax.onValueChanged.Invoke(val);
+                    case "smax":
+                        S_Smax.value = val;
                         break;
-                    case "ScaleMin":
-                        S_ScaleMin.value = val;
-                        S_ScaleMin.onValueChanged.Invoke(val);
+                    // hex and lang not working for now
+                    case "hex":
+                        Debug.Log(varValue);
+                        hex.text = varValue;
                         break;
-                    case "ScaleMax":
-                        S_ScaleMax.value = val;
-                        S_ScaleMax.onValueChanged.Invoke(val);
+                    case "pngpath":
+                        Debug.Log(varValue);
+                        thepngpath = varValue;
+                        LoadTri(thepngpath);
+                        break;
+                    case "lang":
+                        lang = varValue;
                         break;
                     default:
                         Debug.LogError("Unknown variable in config: " + varName);
                         break;
                 }
+                
             }
         }
     }
 
+    public void LoadTri(string lepath)
+    {
+            string loc = "file://" + lepath; //Changes the file path into a form that unity recognises
+            trivars.pngpath = loc;
+            Debug.Log("loc: " + loc);
+            _imgLoc = loc; //terrible way to make a string global, i cba redoing it. its late :) <3
+            StartCoroutine(GetSprite()); //Starts co-routine to change sprites
+    }
+    IEnumerator GetSprite()
+    {
+        Debug.Log("imgloc: " + _imgLoc);
+        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(_imgLoc)) //"Downloads" (unity be stupid), the texture so we can create it _imgLoc is the filepath for the opened image
+        {
+            yield return www.SendWebRequest(); //Sends request to get image file
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error); //error return stuffs
+            }
+            else
+            {
+                Rect rect = new Rect(); //Creates new rect for texture
+                rect.x = 0; //init stuff
+                rect.y = 0; //^^
+                rect.width = DownloadHandlerTexture.GetContent(www).width; //Sets the rect dimensions to image resolution
+                rect.height = DownloadHandlerTexture.GetContent(www).height; //^^
+                Sprite sprite = Sprite.Create(DownloadHandlerTexture.GetContent(www), rect, new Vector2(0.5f, 0.5f)); //Creates new sprite
+                _triPrefab.GetComponent<SpriteRenderer>().sprite = sprite; //Overrites the tri prefab sprite
+                _triPrefab.GetComponent<Triangle>().trianglespr = sprite; //^^
+            }
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    void SET_S_YSMIN(float value)
-    {
-
-        YSpeedMin = value;
-    }
-    void SET_S_YSMAX(float value)
-    {
-
-        YSpeedMax = value;
-    }
-    void SET_S_OMIN(float value)
-    {
-
-        OpacityMin = value;
-    }
-    void SET_S_OMAX(float value)
-    {
-
-        OpacityMax = value;
-    }
-    void SET_S_SMIN(float value)
-    {
-
-        ScaleMin = value;
-    }
-    void SET_S_SMAX(float value)
-    {
-
-        ScaleMax = value;
-    }
-    void SET_S_SPAWNSPEED(float value)
-    {
-
-        SpawnSpeed = value;
     }
 }

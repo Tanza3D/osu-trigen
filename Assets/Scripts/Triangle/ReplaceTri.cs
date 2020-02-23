@@ -20,12 +20,15 @@ public class ReplaceTri : MonoBehaviour
         if (paths.Length == 1) //Checks To See if only 1 file selected
         {
             string loc = "file://" + paths[0]; //Changes the file path into a form that unity recognises
+            trivars.pngpath = loc.Replace("file://","");
             _imgLoc = loc; //terrible way to make a string global, i cba redoing it. its late :) <3
             StartCoroutine(GetSprite()); //Starts co-routine to change sprites
+
         }
     }
     IEnumerator GetSprite()
     {
+        Debug.Log("imgloc: " + _imgLoc);
         using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(_imgLoc)) //"Downloads" (unity be stupid), the texture so we can create it _imgLoc is the filepath for the opened image
         {
             yield return www.SendWebRequest(); //Sends request to get image file
