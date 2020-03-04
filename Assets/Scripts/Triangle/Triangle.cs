@@ -8,7 +8,7 @@ using UnityEngine;
 public class Triangle : MonoBehaviour
 {
     // Set the variables!
-
+    
     AudioSource m_MyAudioSource;
     public GameObject TriPrefab;
     public GameObject Savedialog;
@@ -41,6 +41,8 @@ public class Triangle : MonoBehaviour
     public string hextext;
     public float clicked;
 
+    public float finalspeedsaved;
+
     public string hexcodetext;
     Collider m_Collider;
 
@@ -71,8 +73,8 @@ public class Triangle : MonoBehaviour
     public void Init()
     {
         byte[] colors = ConvertHexStringToByteArray("FFAB02"); //converts hex to rgb
-        randomadd = UnityEngine.Random.Range(-0.06f, 0.06f); // sets randomadd to add to value in updatecolor()
-        updatecolor(); // run updatecolor to update the triangle colour at init
+        randomadd = UnityEngine.Random.Range(trivars.CVRem, trivars.CVAdd); // sets randomadd to add to value in updatecolor()
+        
         m_Collider = GetComponent<Collider>(); // set collider
         clicked = 0; // set clicked to 0
         waitamount = 0; // sets waitamount to 0
@@ -87,7 +89,7 @@ public class Triangle : MonoBehaviour
         FinalOpacity = OpacityMin; // Sets FinalOpacity to the minimum opacity.
         col.a = FinalOpacity; // Sets col.a (colour alpha) to the FinalOpacity 
         spRend.color = col; // Sets spRend colour to col, while your at it why not paint yourself invisible
-        StartX = UnityEngine.Random.Range(-14.1f, 14.1f); //Gets X for spawn
+        StartX = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets X for spawn
         FinalScale = UnityEngine.Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         StartY = -13; //Sets startY to just off screen
         FinalSpeed = UnityEngine.Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
@@ -100,6 +102,7 @@ public class Triangle : MonoBehaviour
         {
             FinalSpeed = 0.2f; //makes speed high enough to move the triangle at an acceptable speed
         }
+        updatecolor(); // run updatecolor to update the triangle colour at init
         // Examples
         //
         // If a triangle was the size of two, and the speed was set to 8, the speed would end out as 4.
@@ -115,12 +118,22 @@ public class Triangle : MonoBehaviour
     {
         updatecolor();
         //hexcodetext = hexcode.text;
-        transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+
+        if (trivars.tripaused == false)
+        {
+            transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+        }
+
+        
         if (transform.position.y >= 20) {
             Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
         }
 
-        if(osumodecontroller.omode == 1)
+        
+
+
+
+        if (osumodecontroller.omode == 1)
         {
             GetComponent<SpriteRenderer>().sprite = hitcircle; // gets spriterenderer and sets it to a hitcircle
             print(osumodecontroller.omode); // we off

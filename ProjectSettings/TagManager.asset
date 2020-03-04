@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Triangle
   - HexTag
+  - ColourUI
+  - ColourText
+  - pancol
+  - textcol
+  - buttext
   layers:
   - Default
   - TransparentFX

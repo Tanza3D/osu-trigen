@@ -21,7 +21,7 @@ public class osumode : MonoBehaviour
     void Start()
     {
         osumodecontroller.omode = 0;
-        OMButton.onClick.AddListener(OMButtonClick);
+        //OMButton.onClick.AddListener(OMButtonClick);
     }
 
     // Update is called once per frame

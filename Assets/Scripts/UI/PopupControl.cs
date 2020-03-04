@@ -17,8 +17,8 @@ public class PopupControl : MonoBehaviour
     {
         GetComponent<CanvasGroup>().alpha = 0;
 
-        Button credclick = creditsbutt.GetComponent<Button>();
-        credclick.onClick.AddListener(credpress);
+        //Button credclick = creditsbutt.GetComponent<Button>();
+        //credclick.onClick.AddListener(credpress);
 
         Button closeclick = popupclose.GetComponent<Button>();
         closeclick.onClick.AddListener(closepress);
@@ -34,6 +34,8 @@ public class PopupControl : MonoBehaviour
 
         Button reportclick = reportbutt.GetComponent<Button>();
         sourceclick.onClick.AddListener(reportpress);
+
+        GetComponent<CanvasGroup>().interactable = false;
     }
     public void reportpress()
     {
@@ -41,12 +43,22 @@ public class PopupControl : MonoBehaviour
     }
     public void credpress()
     {
-        GetComponent<CanvasGroup>().alpha = 1;
+        if (GetComponent<CanvasGroup>().alpha == 1)
+        {
+            GetComponent<CanvasGroup>().alpha = 0;
+            GetComponent<CanvasGroup>().interactable = false;
+        }
+        else
+        {
+            GetComponent<CanvasGroup>().alpha = 1;
+            GetComponent<CanvasGroup>().interactable = true;
+        }
     }
 
     public void closepress()
     {
         GetComponent<CanvasGroup>().alpha = 0;
+        GetComponent<CanvasGroup>().interactable = false;
     }
 
     public void privacypress()

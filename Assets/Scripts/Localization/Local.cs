@@ -23,6 +23,14 @@ public class Local : MonoBehaviour
     public Text PrivacyPolicy;
     public Text Credits;
 
+    public Text TEX_ReportBug;
+    public Text TEX_ReplaceTri;
+    public Text TEX_ReplaceBG;
+    public Text TEX_PlayWAV;
+    public Text TEX_DeleteAll;
+    public Text TEX_ResetAll;
+    public Text TEX_CloseButton;
+
     public string EN_MainControls;
     public string EN_TriSpawnSpeed;
     public string EN_TriSpeed;
@@ -39,6 +47,14 @@ public class Local : MonoBehaviour
     public string EN_SourceCode;
     public string EN_PrivacyPolicy;
     public string EN_Credits;
+    public string EN_ReportBug;
+    public string EN_ReplaceTri;
+    public string EN_ReplaceBG;
+    public string EN_PlayWAV;
+    public string EN_DeleteAll;
+    public string EN_ResetAll;
+    public string EN_CloseButton;
+
 
     public string RU_MainControls;
     public string RU_TriSpawnSpeed;
@@ -56,6 +72,13 @@ public class Local : MonoBehaviour
     public string RU_SourceCode;
     public string RU_PrivacyPolicy;
     public string RU_Credits;
+    public string RU_ReportBug;
+    public string RU_ReplaceTri;
+    public string RU_ReplaceBG;
+    public string RU_PlayWAV;
+    public string RU_DeleteAll;
+    public string RU_ResetAll;
+    public string RU_CloseButton;
 
     public string FN_MainControls;
     public string FN_TriSpawnSpeed;
@@ -73,6 +96,13 @@ public class Local : MonoBehaviour
     public string FN_SourceCode;
     public string FN_PrivacyPolicy;
     public string FN_Credits;
+    public string FN_ReportBug;
+    public string FN_ReplaceTri;
+    public string FN_ReplaceBG;
+    public string FN_PlayWAV;
+    public string FN_DeleteAll;
+    public string FN_ResetAll;
+    public string FN_CloseButton;
 
     public string CZ_MainControls;
     public string CZ_TriSpawnSpeed;
@@ -90,6 +120,13 @@ public class Local : MonoBehaviour
     public string CZ_SourceCode;
     public string CZ_PrivacyPolicy;
     public string CZ_Credits;
+    public string CZ_ReportBug;
+    public string CZ_ReplaceTri;
+    public string CZ_ReplaceBG;
+    public string CZ_PlayWAV;
+    public string CZ_DeleteAll;
+    public string CZ_ResetAll;
+    public string CZ_CloseButton;
 
     public string IT_MainControls;
     public string IT_TriSpawnSpeed;
@@ -107,6 +144,13 @@ public class Local : MonoBehaviour
     public string IT_SourceCode;
     public string IT_PrivacyPolicy;
     public string IT_Credits;
+    public string IT_ReportBug;
+    public string IT_ReplaceTri;
+    public string IT_ReplaceBG;
+    public string IT_PlayWAV;
+    public string IT_DeleteAll;
+    public string IT_ResetAll;
+    public string IT_CloseButton;
 
     public string NL_MainControls;
     public string NL_TriSpawnSpeed;
@@ -124,6 +168,13 @@ public class Local : MonoBehaviour
     public string NL_SourceCode;
     public string NL_PrivacyPolicy;
     public string NL_Credits;
+    public string NL_ReportBug;
+    public string NL_ReplaceTri;
+    public string NL_ReplaceBG;
+    public string NL_PlayWAV;
+    public string NL_DeleteAll;
+    public string NL_ResetAll;
+    public string NL_CloseButton;
 
     public string ES_MainControls;
     public string ES_TriSpawnSpeed;
@@ -141,6 +192,13 @@ public class Local : MonoBehaviour
     public string ES_SourceCode;
     public string ES_PrivacyPolicy;
     public string ES_Credits;
+    public string ES_ReportBug;
+    public string ES_ReplaceTri;
+    public string ES_ReplaceBG;
+    public string ES_PlayWAV;
+    public string ES_DeleteAll;
+    public string ES_ResetAll;
+    public string ES_CloseButton;
 
     public string DE_MainControls;
     public string DE_TriSpawnSpeed;
@@ -158,6 +216,13 @@ public class Local : MonoBehaviour
     public string DE_SourceCode;
     public string DE_PrivacyPolicy;
     public string DE_Credits;
+    public string DE_ReportBug;
+    public string DE_ReplaceTri;
+    public string DE_ReplaceBG;
+    public string DE_PlayWAV;
+    public string DE_DeleteAll;
+    public string DE_ResetAll;
+    public string DE_CloseButton;
 
     public string FR_MainControls;
     public string FR_TriSpawnSpeed;
@@ -175,15 +240,22 @@ public class Local : MonoBehaviour
     public string FR_SourceCode;
     public string FR_PrivacyPolicy;
     public string FR_Credits;
+    public string FR_ReportBug;
+    public string FR_ReplaceTri;
+    public string FR_ReplaceBG;
+    public string FR_PlayWAV;
+    public string FR_DeleteAll;
+    public string FR_ResetAll;
+    public string FR_CloseButton;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        langdrop.onValueChanged.AddListener(delegate {
-            langchange(langdrop);
-        });
+        // langdrop.onValueChanged.AddListener(delegate {
+        //    langchange(langdrop);
+        //});
 
 
 
@@ -204,6 +276,14 @@ public class Local : MonoBehaviour
         EN_PrivacyPolicy = "Privacy Policy";
         EN_Credits = "Credits";
 
+        EN_ReportBug = "Report Bug";
+        EN_ReplaceTri = "Replace Tri";
+        EN_ReplaceBG = "Replace BG";
+        EN_PlayWAV = "Play WAV";
+        EN_DeleteAll = "Delete all tris";
+        EN_ResetAll = "Reset All";
+        EN_CloseButton = "Close";
+
         NL_MainControls = "Algemene Besturing";
         NL_TriSpawnSpeed = "Driehoek Spawn-Snelheid";
         NL_TriSpeed = "Driehoek Snelheid";
@@ -216,11 +296,13 @@ public class Local : MonoBehaviour
         NL_ColourPick = "Kleuren Kiezer";
         NL_HideUI = "Verberg UI";
         NL_DevelopmentBuildHeader = "Ontwikkelings Versie";
-        //undone
-        NL_Website = "Website";
-        NL_SourceCode = "Source Code";
-        NL_PrivacyPolicy = "Privacy Policy";
-        NL_Credits = "Credits";
+        NL_ReportBug = "Report Bug";
+        NL_ReplaceTri = "Replace Tri";
+        NL_ReplaceBG = "Replace BG";
+        NL_PlayWAV = "Play WAV";
+        NL_DeleteAll = "Delete all tris";
+        NL_ResetAll = "Reset All";
+        NL_CloseButton = "Close";
 
         RU_MainControls = "Основные Параметры";
         RU_TriSpawnSpeed = "Скорость Появления";
@@ -238,6 +320,13 @@ public class Local : MonoBehaviour
         RU_SourceCode = "Исходный Код";
         RU_PrivacyPolicy = "Политика Конфиденциальности";
         RU_Credits = "Создатели";
+        RU_ReportBug = "RU Report Bug";
+        RU_ReplaceTri = "RU Replace Tri";
+        RU_ReplaceBG = "RU Replace BG";
+        RU_PlayWAV = "RU Play WAV";
+        RU_DeleteAll = "RU Delete all tris";
+        RU_ResetAll = "RU Reset All";
+        RU_CloseButton = "RU Close";
 
         FN_MainControls = "Pää Kontrollit";
         FN_TriSpawnSpeed = "Kolmion LuomisNopeus";
@@ -251,11 +340,13 @@ public class Local : MonoBehaviour
         FN_ColourPick = "Väri valitsin";
         FN_HideUI = "Piilota UI";
         FN_DevelopmentBuildHeader = "Kehitys";
-        //undone
-        FN_Website = "Website";
-        FN_SourceCode = "Source Code";
-        FN_PrivacyPolicy = "Privacy Policy";
-        FN_Credits = "Credits";
+        FN_ReportBug = "Report Bug";
+        FN_ReplaceTri = "Replace Tri";
+        FN_ReplaceBG = "Replace BG";
+        FN_PlayWAV = "Play WAV";
+        FN_DeleteAll = "Delete all tris";
+        FN_ResetAll = "Reset All";
+        FN_CloseButton = "Close";
 
         CZ_MainControls = "Hlavní ovládání"; //Main Controls
         CZ_TriSpawnSpeed = "Rychlost generace trojúhelníkú"; //Triangle Speed
@@ -269,11 +360,13 @@ public class Local : MonoBehaviour
         CZ_ColourPick = "Výběr barev"; //Colour Picker
         CZ_HideUI = "Schovat uživatelské prostředí"; //Hide UI
         CZ_DevelopmentBuildHeader = "Testovací sestavení"; //Development Build
-        //undone
-        CZ_Website = "Website";
-        CZ_SourceCode = "Source Code";
-        CZ_PrivacyPolicy = "Privacy Policy";
-        CZ_Credits = "Credits";
+        CZ_ReportBug = "Report Bug";
+        CZ_ReplaceTri = "Replace Tri";
+        CZ_ReplaceBG = "Replace BG";
+        CZ_PlayWAV = "Play WAV";
+        CZ_DeleteAll = "Delete all tris";
+        CZ_ResetAll = "Reset All";
+        CZ_CloseButton = "Close";
 
         IT_MainControls = "Controlli Principali";
         IT_TriSpawnSpeed = "Velocità di spawn dei triangoli";
@@ -287,11 +380,13 @@ public class Local : MonoBehaviour
         IT_ColourPick = "Selezione colore";
         IT_HideUI = "Nascondi Interfaccia";
         IT_DevelopmentBuildHeader = "Versione Sperimentale";
-        //undone
-        IT_Website = "Website";
-        IT_SourceCode = "Source Code";
-        IT_PrivacyPolicy = "Privacy Policy";
-        IT_Credits = "Credits";
+        IT_ReportBug = "Report Bug";
+        IT_ReplaceTri = "Replace Tri";
+        IT_ReplaceBG = "Replace BG";
+        IT_PlayWAV = "Play WAV";
+        IT_DeleteAll = "Delete all tris";
+        IT_ResetAll = "Reset All";
+        IT_CloseButton = "Close";
 
         ES_MainControls = "Controles principales";
         ES_TriSpawnSpeed = "Velocidad de generación de los triángulos";
@@ -305,10 +400,13 @@ public class Local : MonoBehaviour
         ES_ColourPick = "Selector de color";
         ES_HideUI = "Esconder interfaz";
         ES_DevelopmentBuildHeader = "Versión de desarrollo";
-        ES_Website = "Página web";
-        ES_SourceCode = "Código fuente";
-        ES_PrivacyPolicy = "Política de privacidad";
-        ES_Credits = "Créditos";
+        ES_ReportBug = "ES Report Bug";
+        ES_ReplaceTri = "ES Replace Tri";
+        ES_ReplaceBG = "ES Replace BG";
+        ES_PlayWAV = "ES Play WAV";
+        ES_DeleteAll = "ES Delete all tris";
+        ES_ResetAll = "ES Reset All";
+        ES_CloseButton = "ES Close";
 
         DE_MainControls = "Hauptsteuerung";
         DE_TriSpawnSpeed = "Dreieck Erscheinungsgeschwindigkeit";
@@ -322,11 +420,13 @@ public class Local : MonoBehaviour
         DE_ColourPick = "Farbauswahl";
         DE_HideUI = "UI verstecken";
         DE_DevelopmentBuildHeader = "Development Build";
-        //undone
-        DE_Website = "Website";
-        DE_SourceCode = "Source Code";
-        DE_PrivacyPolicy = "Privacy Policy";
-        DE_Credits = "Credits";
+        DE_ReportBug = "Report Bug";
+        DE_ReplaceTri = "Replace Tri";
+        DE_ReplaceBG = "Replace BG";
+        DE_PlayWAV = "Play WAV";
+        DE_DeleteAll = "Delete all tris";
+        DE_ResetAll = "Reset All";
+        DE_CloseButton = "Close";
 
         FR_MainControls = "Controles principaux";
         FR_TriSpawnSpeed = "Vitesse d'engendrement";
@@ -340,10 +440,13 @@ public class Local : MonoBehaviour
         FR_ColourPick = "Sélecteur de couleurs";
         FR_HideUI = "Cacher l'interface";
         FR_DevelopmentBuildHeader = "Build de développement";
-        FR_Website = "Site Internet";
-        FR_SourceCode = "Code source";
-        FR_PrivacyPolicy = "Police de confidentialité";
-        FR_Credits = "Crédits";
+        FR_ReportBug = "Report Bug";
+        FR_ReplaceTri = "Replace Tri";
+        FR_ReplaceBG = "Replace BG";
+        FR_PlayWAV = "Play WAV";
+        FR_DeleteAll = "Delete all tris";
+        FR_ResetAll = "Reset All";
+        FR_CloseButton = "Close";
     }
 
     // Update is called once per frame
@@ -366,6 +469,14 @@ public class Local : MonoBehaviour
         ColourPick.text = EN_ColourPick;
         HideUI.text = EN_HideUI;
         DevelopmentBuildHeader.text = EN_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text = EN_ReportBug;
+        TEX_ReplaceTri.text = EN_ReplaceTri;
+        TEX_ReplaceBG.text = EN_ReplaceBG;
+        TEX_PlayWAV.text = EN_PlayWAV;
+        TEX_DeleteAll.text = EN_DeleteAll;
+        TEX_ResetAll.text = EN_ResetAll;
+        TEX_CloseButton.text = EN_CloseButton;
     }
 
     void nlSWITCH()
@@ -383,6 +494,14 @@ public class Local : MonoBehaviour
         ColourPick.text = NL_ColourPick;
         HideUI.text = NL_HideUI;
         DevelopmentBuildHeader.text = NL_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text = NL_ReportBug;
+        TEX_ReplaceTri.text = NL_ReplaceTri;
+        TEX_ReplaceBG.text = NL_ReplaceBG;
+        TEX_PlayWAV.text = NL_PlayWAV;
+        TEX_DeleteAll.text = NL_DeleteAll;
+        TEX_ResetAll.text = NL_ResetAll;
+        TEX_CloseButton.text = NL_CloseButton;
     }
 
     void deSWITCH()
@@ -400,6 +519,14 @@ public class Local : MonoBehaviour
         ColourPick.text = DE_ColourPick;
         HideUI.text = DE_HideUI;
         DevelopmentBuildHeader.text = DE_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text = DE_ReportBug;
+        TEX_ReplaceTri.text = DE_ReplaceTri;
+        TEX_ReplaceBG.text = DE_ReplaceBG;
+        TEX_PlayWAV.text = DE_PlayWAV;
+        TEX_DeleteAll.text = DE_DeleteAll;
+        TEX_ResetAll.text = DE_ResetAll;
+        TEX_CloseButton.text = DE_CloseButton;
     }
 
     void ruSWITCH()
@@ -416,6 +543,14 @@ public class Local : MonoBehaviour
         ColourPick.text = RU_ColourPick;
         HideUI.text = RU_HideUI;
         DevelopmentBuildHeader.text = RU_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =   RU_ReportBug;
+        TEX_ReplaceTri.text =  RU_ReplaceTri;
+        TEX_ReplaceBG.text =   RU_ReplaceBG;
+        TEX_PlayWAV.text =     RU_PlayWAV;
+        TEX_DeleteAll.text =   RU_DeleteAll;
+        TEX_ResetAll.text =    RU_ResetAll;
+        TEX_CloseButton.text = RU_CloseButton;
     }
 
     void fnSWITCH()
@@ -432,6 +567,14 @@ public class Local : MonoBehaviour
         ColourPick.text = FN_ColourPick;
         HideUI.text = FN_HideUI;
         DevelopmentBuildHeader.text = FN_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =    FN_ReportBug;
+        TEX_ReplaceTri.text =   FN_ReplaceTri;
+        TEX_ReplaceBG.text =    FN_ReplaceBG;
+        TEX_PlayWAV.text =      FN_PlayWAV;
+        TEX_DeleteAll.text =    FN_DeleteAll;
+        TEX_ResetAll.text =     FN_ResetAll;
+        TEX_CloseButton.text =  FN_CloseButton;
     }
 
     void czSWITCH()
@@ -448,6 +591,14 @@ public class Local : MonoBehaviour
         ColourPick.text = CZ_ColourPick;
         HideUI.text = CZ_HideUI;
         DevelopmentBuildHeader.text = CZ_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =   CZ_ReportBug;
+        TEX_ReplaceTri.text =  CZ_ReplaceTri;
+        TEX_ReplaceBG.text =   CZ_ReplaceBG;
+        TEX_PlayWAV.text =     CZ_PlayWAV;
+        TEX_DeleteAll.text =   CZ_DeleteAll;
+        TEX_ResetAll.text =    CZ_ResetAll;
+        TEX_CloseButton.text = CZ_CloseButton;
     }
 
     void itSWITCH()
@@ -464,6 +615,14 @@ public class Local : MonoBehaviour
         ColourPick.text = IT_ColourPick;
         HideUI.text = IT_HideUI;
         DevelopmentBuildHeader.text = IT_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =   IT_ReportBug;
+        TEX_ReplaceTri.text =  IT_ReplaceTri;
+        TEX_ReplaceBG.text =   IT_ReplaceBG;
+        TEX_PlayWAV.text =     IT_PlayWAV;
+        TEX_DeleteAll.text =   IT_DeleteAll;
+        TEX_ResetAll.text =    IT_ResetAll;
+        TEX_CloseButton.text = IT_CloseButton;
     }
 
     void esSWITCH()
@@ -480,6 +639,14 @@ public class Local : MonoBehaviour
         ColourPick.text = ES_ColourPick;
         HideUI.text = ES_HideUI;
         DevelopmentBuildHeader.text = ES_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =   ES_ReportBug;
+        TEX_ReplaceTri.text =  ES_ReplaceTri;
+        TEX_ReplaceBG.text =   ES_ReplaceBG;
+        TEX_PlayWAV.text =     ES_PlayWAV;
+        TEX_DeleteAll.text =   ES_DeleteAll;
+        TEX_ResetAll.text =    ES_ResetAll;
+        TEX_CloseButton.text = ES_CloseButton;
     }
 
     void frSWITCH()
@@ -496,6 +663,14 @@ public class Local : MonoBehaviour
         ColourPick.text = FR_ColourPick;
         HideUI.text = FR_HideUI;
         DevelopmentBuildHeader.text = FR_DevelopmentBuildHeader;
+
+        TEX_ReportBug.text =   FR_ReportBug;
+        TEX_ReplaceTri.text =  FR_ReplaceTri;
+        TEX_ReplaceBG.text =   FR_ReplaceBG;
+        TEX_PlayWAV.text =     FR_PlayWAV;
+        TEX_DeleteAll.text =   FR_DeleteAll;
+        TEX_ResetAll.text =    FR_ResetAll;
+        TEX_CloseButton.text = FR_CloseButton;
     }
 
     private void langchange(Dropdown target)

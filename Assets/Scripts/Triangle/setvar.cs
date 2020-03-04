@@ -17,6 +17,9 @@ public class setvar : MonoBehaviour
     [SerializeField] UnityEngine.UI.Slider S_OpacityMax;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMin;
     [SerializeField] UnityEngine.UI.Slider S_ScaleMax;
+
+    [SerializeField] UnityEngine.UI.Slider S_CVAdd;
+    [SerializeField] UnityEngine.UI.Slider S_CVRem;
     public Text hex;
     public Text debug;
     public float triamount;
@@ -28,6 +31,10 @@ public class setvar : MonoBehaviour
         trivars.opacity = S_OpacityMin.value;
         trivars.smin = S_ScaleMin.value;
         trivars.smax = S_ScaleMax.value;
+
+        trivars.CVAdd = S_CVAdd.value;
+        trivars.CVRem = -S_CVRem.value;
+
         trivars.hex = hex.text;
 
         trivars.orig_spawnspeed = trivars.spawnspeed;
@@ -36,6 +43,9 @@ public class setvar : MonoBehaviour
         trivars.orig_smin = trivars.smin;
         trivars.orig_smax = trivars.smax;
         trivars.orig_hex = trivars.hex;
+
+        trivars.orig_CVAdd = S_CVAdd.value;
+        trivars.orig_CVRem = -S_CVRem.value;
     }
 
     // Update is called once per frame
@@ -47,6 +57,9 @@ public class setvar : MonoBehaviour
         trivars.smin = S_ScaleMin.value;
         trivars.smax = S_ScaleMax.value;
         trivars.hex = hex.text;
+
+        trivars.CVAdd = S_CVAdd.value;
+        trivars.CVRem = -S_CVRem.value;
 
         hex.text = "owo";
 
@@ -60,15 +73,20 @@ public class setvar : MonoBehaviour
             + "\nOpacity: " + trivars.opacity.ToString()
             + "\nSizeMin: " + trivars.smin.ToString()
             + "\nSizeMax: " + trivars.smax.ToString()
+            + "\nCVAdd: " + trivars.CVAdd.ToString()
+            + "\nCDRem: " + trivars.CVRem.ToString()
             + "\nO_Spawnspeed: " + trivars.orig_spawnspeed.ToString()
             + "\nO_Speed: " + trivars.orig_speed.ToString()
             + "\nO_Opacity: " + trivars.orig_opacity.ToString()
             + "\nO_SizeMin: " + trivars.orig_smin.ToString()
             + "\nO_SizeMax: " + trivars.orig_smax.ToString()
+            + "\nO_CVAdd: " + trivars.orig_CVAdd.ToString()
+            + "\nO_CDRem: " + trivars.orig_CVRem.ToString()
             + "\nHex: " + trivars.hex
             + "\nHexText: " + hex.text
             + "\nTriAmount: " + triamount
             + "\nPNG Path: " + trivars.pngpath
+            + "\nBACKGROUND Path: " + trivars.backgroundpath
             ;
     }
 }

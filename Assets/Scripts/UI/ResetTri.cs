@@ -8,7 +8,8 @@ public class ResetTri : MonoBehaviour
     public GameObject _tri;
     public ReplaceTri _rTri;
     public Button resettributt;
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {

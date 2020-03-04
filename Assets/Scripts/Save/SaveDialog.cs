@@ -25,6 +25,9 @@ public class SaveDialog : MonoBehaviour
     public UnityEngine.UI.Slider S_Opacity;
     public UnityEngine.UI.Slider S_Smin;
     public UnityEngine.UI.Slider S_Smax;
+
+    public UnityEngine.UI.Slider S_CVAdd;
+    public UnityEngine.UI.Slider S_CVRem;
     public InputField hex;
     public string lang;
     public string result;
@@ -50,6 +53,8 @@ public class SaveDialog : MonoBehaviour
     public float FinalScale;
     public float FinalOpacity;
     public bool tryparsething;
+    public Toggle seperatepicker;
+    public InputField bghex;
 
     // tri replacement
     public GameObject _triPrefab; //Reference To Prefab
@@ -82,9 +87,14 @@ public class SaveDialog : MonoBehaviour
             "\nopacity = " + trivars.opacity +
             "\nsmin = " + trivars.smin +
             "\nsmax = " + trivars.smax +
+            "\ncvadd = " + trivars.CVAdd +
+            "\ncvrem = " + trivars.CVRem +
             "\nhex = " + trivars.hex +
             "\npngpath = " + trivars.pngpath +
-            "\nlang = " + trivars.lang
+            "\nbackgroundpath = " + trivars.backgroundpath +
+            "\nlang = " + trivars.lang +
+            "\nbghex = " + trivars.backgroundhex +
+            "\nbgtoggle = " + trivars.seperatepicker
             ;
         // opens panel
         var path = StandaloneFileBrowser.SaveFilePanel("Save TriGen config file as .tgcf", "", "config", "tgcf");
@@ -146,6 +156,12 @@ public class SaveDialog : MonoBehaviour
                     case "smax":
                         S_Smax.value = val;
                         break;
+                    case "cvadd":
+                        S_CVAdd.value = val;
+                        break;
+                    case "cvrem":
+                        S_CVRem.value = -val;
+                        break;
                     // hex and lang not working for now
                     case "hex":
                         Debug.Log(varValue);
@@ -155,6 +171,14 @@ public class SaveDialog : MonoBehaviour
                         Debug.Log(varValue);
                         thepngpath = varValue;
                         LoadTri(thepngpath);
+                        break;
+                    case "bghex":
+                        Debug.Log(varValue);
+                        bghex.text = varValue;
+                        break;
+                    case "bgtoggle":
+                        Debug.Log(varValue);
+                        seperatepicker.GetComponent<Toggle>().isOn = true;
                         break;
                     case "lang":
                         lang = varValue;

@@ -23,7 +23,13 @@ public class UIHideScript : MonoBehaviour
     public UnityEngine.UI.Slider S_Smin;
     public UnityEngine.UI.Slider S_Smax;
 
-    public UnityEngine.UI.Text hextext;
+    public UnityEngine.UI.Slider S_CVRem;
+    public UnityEngine.UI.Slider S_CVAdd;
+
+    public InputField hextext;
+    public InputField bghex;
+
+    public Toggle seperate;
 
     public GameObject resetbgbutt;
 
@@ -40,8 +46,10 @@ public class UIHideScript : MonoBehaviour
         delTriButton.onClick.AddListener(DelTri);
         resettributt.onClick.AddListener(ResetTriOptions);
         delallbutt.onClick.AddListener(delalltri);
+        GetComponent<CanvasGroup>().interactable = true;
 
-        
+
+
     }
 
 
@@ -52,10 +60,12 @@ public class UIHideScript : MonoBehaviour
             if (GetComponent<CanvasGroup>().alpha == 1)
             {
                 GetComponent<CanvasGroup>().alpha = 0;
+                GetComponent<CanvasGroup>().interactable = false;
             }
             else
             {
                 GetComponent<CanvasGroup>().alpha = 1;
+                GetComponent<CanvasGroup>().interactable = true;
             }
         }
     }
@@ -78,6 +88,12 @@ public class UIHideScript : MonoBehaviour
 
         foreach (GameObject aa in tris)
         {
+            hextext.text = "#ffffff";
+            bghex.text = "#ffffff";
+
+            seperate.isOn = false;
+            
+
             if(aa.name != "Tri") //Only Deletes Clones, so Tri's can be reset
             {
                 Destroy(aa);
@@ -90,6 +106,8 @@ public class UIHideScript : MonoBehaviour
             S_Opacity.value = trivars.orig_opacity;
             S_Smin.value = trivars.orig_smin;
             S_Smax.value = trivars.orig_smax;
+            S_CVRem.value = -trivars.orig_CVRem;
+            S_CVAdd.value = trivars.orig_CVAdd;
         }
     }
     void ResetTriOptions()
@@ -110,8 +128,23 @@ public class UIHideScript : MonoBehaviour
     public void delalltri()
     {
         GameObject[] tris;
+        GameObject[] UI;
 
         tris = GameObject.FindGameObjectsWithTag("Triangle");
+
+        GameObject[] objs;
+        objs = GameObject.FindGameObjectsWithTag("ColourUI");
+        foreach (GameObject owo in objs)
+        {
+            owo.GetComponent<Image>().color = new Color(1, 0, 0, 1);
+        }
+
+        GameObject[] objs2;
+        objs2 = GameObject.FindGameObjectsWithTag("ColourText");
+        foreach (GameObject owo in objs2)
+        {
+            owo.GetComponent<Text>().color = new Color(1, 0, 0, 1);
+        }
 
         foreach (GameObject aa in tris)
         {

@@ -26,6 +26,9 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         startPosition = target.position;
         startMousePosition = Input.mousePosition;
         transform.SetAsLastSibling();
+
+
+        GetComponent<Image>().color = new Color(0.9f, 0.9f, 0.9f, 1.0f);
     }
 
     public void OnPointerUp(PointerEventData dt)
@@ -38,6 +41,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             target.position = startPosition;
         }
+
+        GetComponent<Image>().color = Color.white;
     }
 
     // Update is called once per frame
