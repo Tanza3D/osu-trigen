@@ -43,6 +43,8 @@ public class Triangle : MonoBehaviour
 
     public float finalspeedsaved;
 
+    public GameObject selectionbox;
+
     public string hexcodetext;
     Collider m_Collider;
 
@@ -89,13 +91,36 @@ public class Triangle : MonoBehaviour
         FinalOpacity = OpacityMin; // Sets FinalOpacity to the minimum opacity.
         col.a = FinalOpacity; // Sets col.a (colour alpha) to the FinalOpacity 
         spRend.color = col; // Sets spRend colour to col, while your at it why not paint yourself invisible
-        StartX = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets X for spawn
+   
         FinalScale = UnityEngine.Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
-        StartY = -13; //Sets startY to just off screen
         FinalSpeed = UnityEngine.Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
         FinalZ = FinalScale; //Sets FinalZ to Scale, so the smaller the triangles are the closer they are to the camera, closer = smaller number
-        transform.position = new Vector3(StartX,StartY,FinalZ); //Sets the position to StartX and StartY, sets Z to 0
+        
         transform.localScale = new Vector3(FinalScale, FinalScale, 1); //Sets the scale to FinalScale
+        if (trivars.rotation == "up")
+        {
+            StartX = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets X for spawn
+            StartY = -13;
+            transform.position = new Vector3(StartX, StartY, FinalZ); //Sets the position to StartX and StartY, sets Z to 0
+        }
+        if (trivars.rotation == "down")
+        {
+            StartX = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets X for spawn
+            StartY = 13;
+            transform.position = new Vector3(StartX, StartY, FinalZ); //Sets the position to StartX and StartY, sets Z to 0
+        }
+        if (trivars.rotation == "right")
+        {
+            StartY = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets X for spawn
+            StartX = -13;
+            transform.position = new Vector3(StartX, StartY, FinalZ); //Sets the position to StartX and StartY, sets Z to 0
+        }
+        if (trivars.rotation == "left")
+        {
+            StartY = UnityEngine.Random.Range(-18.1f, 18.1f); //Gets height for spawn
+            StartX = 13;
+            transform.position = new Vector3(StartX, StartY, FinalZ); //Sets the position to StartX and StartY, sets Z to 0
+        }
         FinalSpeed = YSpeedMin; //YSpeedMin is connected to the slider in UI called "Triangle Speed".
         FinalSpeed = FinalSpeed - (FinalScale * 5); //Make it so the smaller the triangles are the faster they move by removing the size from the speed.
         if(FinalSpeed < 0.2f) // checks if speed is too low
@@ -113,21 +138,74 @@ public class Triangle : MonoBehaviour
         //S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX); // adds listeners
         //S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);   // adds listeners
         //S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);   // adds listeners
+
+        SpriteRenderer spRenda = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
+        Color cola = spRenda.color; // sets colour "col" to the sprite colour
+        cola.a = 0f; // removes 0.1 from alpha
+        spRenda.color = cola; // set sprend to col
     }
-    void Update()
+
+    
+
+
+void Update()
     {
         updatecolor();
         //hexcodetext = hexcode.text;
 
         if (trivars.tripaused == false)
         {
-            transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+            if (trivars.rotation == "up")
+            {
+                transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                if (transform.position.y >= 20)
+                {
+                    Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
+                }
+            }
+            if (trivars.rotation == "down")
+            {
+                transform.position -= Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                if (transform.position.y <= -20)
+                {
+                    Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
+                }
+            }
+            if (trivars.rotation == "right")
+            {
+                transform.position += Vector3.right * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                if (transform.position.x >= 20)
+                {
+                    Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
+                }
+            }
+            if (trivars.rotation == "left")
+            {
+                transform.position += Vector3.left * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                if (transform.position.x <= -20)
+                {
+                    Destroy(gameObject); //Destroys the gameobject if it gets too far left to stop lag
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                //SpriteRenderer spRend = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
+                //Color col = spRend.color; // sets colour "col" to the sprite colour
+                //col.a = 1f; // removes 0.1 from alpha
+                //spRend.color = col; // set sprend to col
+                
+            }
         }
 
+            
+  
+
+
         
-        if (transform.position.y >= 20) {
-            Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
-        }
+       
 
         
 
@@ -221,6 +299,16 @@ public class Triangle : MonoBehaviour
    
     void OnMouseDown()
     {
+        Debug.Log("me was clicc");
+
+        if(trivars.tripaused = true)
+        {
+            //SpriteRenderer spRend = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
+            //Color col = spRend.color; // sets colour "col" to the sprite colour
+            //col.a = 1f; // removes 0.1 from alpha
+            //spRend.color = col; // set sprend to col
+        }
+
         if (osumodecontroller.omode == 1) // checks if the osumode is set to 1
         {
             if (clicked == 0) // if clicked is set to... 0?

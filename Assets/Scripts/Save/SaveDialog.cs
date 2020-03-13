@@ -94,6 +94,7 @@ public class SaveDialog : MonoBehaviour
             "\nbackgroundpath = " + trivars.backgroundpath +
             "\nlang = " + trivars.lang +
             "\nbghex = " + trivars.backgroundhex +
+            "\nrotation = " + trivars.rotation +
             "\nbgtoggle = " + trivars.seperatepicker
             ;
         // opens panel
@@ -171,6 +172,10 @@ public class SaveDialog : MonoBehaviour
                         Debug.Log(varValue);
                         thepngpath = varValue;
                         LoadTri(thepngpath);
+                        break;
+                    case "rotation":
+                        Debug.Log(varValue);
+                        trivars.rotation = varValue;
                         break;
                     case "bghex":
                         Debug.Log(varValue);

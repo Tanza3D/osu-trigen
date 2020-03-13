@@ -32,4 +32,6 @@ public static class trivars
     public static string backgroundhex = "000000";
 
     public static bool tripaused = false;
+
+    public static string rotation = "up";
 }

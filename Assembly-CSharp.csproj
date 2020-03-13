@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\UI\PopupControl.cs" />
     <Compile Include="Assets\Scripts\UI\ReplaceBG.cs" />
     <Compile Include="Assets\Scripts\UI\ResetTri.cs" />
+    <Compile Include="Assets\Scripts\UI\RotmanCont.cs" />
     <Compile Include="Assets\Scripts\UI\UIHideScript.cs" />
     <Compile Include="Assets\Scripts\osumode\osumode.cs" />
     <Compile Include="Assets\Scripts\osumode\osumodecontroller.cs" />
@@ -118,6 +119,7 @@
     <None Include="Assets\Addons\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Addons\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Addons\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\FrostedGlass.shader" />
     <None Include="Assets\Addons\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Addons\FlexibleColorPicker\Materials\FCP_Gradient.shader" />
     <None Include="Assets\Addons\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -147,15 +149,6 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

@@ -30,6 +30,7 @@ public class TriangleSpawner : MonoBehaviour
         SpawnSpeedFinal = Random.Range(0, SpawnSpeed);
         if (SpawnSpeedFinal > 5)
         {
+
             GameObject go = Instantiate(triangle, new Vector3(0, 0, 0), Quaternion.identity);
             Triangle tri = go.GetComponent<Triangle>();
             tri.Init();

@@ -143,15 +143,6 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/unity/trigencollab/osu!trigen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
@@ -364,9 +355,6 @@
     </Reference>
     <Reference Include="System.Windows.Forms">
       <HintPath>C:/unity/trigencollab/osu!trigen/Assets/Addons/StandaloneFileBrowser/Plugins/System.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/unity/trigencollab/osu!trigen/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/unity/trigencollab/osu!trigen/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
