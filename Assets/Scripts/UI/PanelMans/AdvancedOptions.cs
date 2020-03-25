@@ -19,11 +19,13 @@ public class AdvancedOptions : MonoBehaviour
         if (onofftoggle.GetComponent<Toggle>().isOn == true)
         {
             GetComponent<CanvasGroup>().alpha = 1;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
             GetComponent<CanvasGroup>().interactable = true;
         }
         else
         {
             GetComponent<CanvasGroup>().alpha = 0;
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<CanvasGroup>().interactable = false;
         }
     }

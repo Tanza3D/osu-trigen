@@ -33,5 +33,7 @@ public static class trivars
 
     public static bool tripaused = false;
 
+    public static float songvol = 1;
+
     public static string rotation = "up";
 }

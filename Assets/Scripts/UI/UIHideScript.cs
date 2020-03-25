@@ -85,7 +85,7 @@ public class UIHideScript : MonoBehaviour
         GameObject[] tris;
 
         tris = GameObject.FindGameObjectsWithTag("Triangle");
-
+        trivars.rotation = "up";
         foreach (GameObject aa in tris)
         {
             hextext.text = "#ffffff";
@@ -112,6 +112,7 @@ public class UIHideScript : MonoBehaviour
     }
     void ResetTriOptions()
     {
+        trivars.rotation = "up";
         GameObject[] tris;
 
         tris = GameObject.FindGameObjectsWithTag("Triangle");

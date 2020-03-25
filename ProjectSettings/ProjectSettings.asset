@@ -69,7 +69,7 @@ PlayerSettings:
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 1
-  captureSingleScreen: 0
+  captureSingleScreen: 1
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
@@ -82,7 +82,7 @@ PlayerSettings:
   useFlipModelSwapchain: 1
   resizableWindow: 1
   useMacAppStoreValidation: 0
-  macAppStoreCategory: public.app-category.games
+  macAppStoreCategory: 
   gpuSkinning: 0
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.3
+  bundleVersion: 1.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,7 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.eclipsedteam.trigen
-    Standalone: com.oculus.UnitySample
+    Standalone: 
     WebGL: 
   buildNumber: {}
   AndroidBundleVersionCode: 1
@@ -425,10 +425,8 @@ PlayerSettings:
     m_Devices:
     - Oculus
   - m_BuildTarget: Standalone
-    m_Enabled: 1
-    m_Devices:
-    - Oculus
-    - OpenVR
+    m_Enabled: 0
+    m_Devices: []
   - m_BuildTarget: Windows Store Apps
     m_Enabled: 1
     m_Devices: []
@@ -663,7 +661,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Minimal
+  webGLTemplate: PROJECT:Responsive
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1

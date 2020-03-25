@@ -84,7 +84,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0560fe10b19ae8d4ab39ac1c841c5eb2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,12 +145,6 @@ MonoBehaviour:
   hitcircle: {fileID: 21300000, guid: b63968bbc565d5346b4fd7ed24577320, type: 3}
   trianglespr: {fileID: 21300000, guid: f9c03f6ddfce98e458bf3ca1248c5c9f, type: 3}
   hexcode: {fileID: 0}
-  S_YSpeedMin: {fileID: 0}
-  S_YSpeedMax: {fileID: 0}
-  S_OpacityMin: {fileID: 0}
-  S_OpacityMax: {fileID: 0}
-  S_ScaleMin: {fileID: 0}
-  S_ScaleMax: {fileID: 0}
   randomadd: 0
   wait: 0
   waitamount: 0

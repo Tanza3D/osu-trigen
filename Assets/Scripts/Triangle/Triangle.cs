@@ -27,13 +27,7 @@ public class Triangle : MonoBehaviour
     public Sprite hitcircle;
     public Sprite trianglespr;
     public Text hexcode;
-    // Sliders
-    public UnityEngine.UI.Slider S_YSpeedMin;
-    public UnityEngine.UI.Slider S_YSpeedMax;
-    public UnityEngine.UI.Slider S_OpacityMin;
-    public UnityEngine.UI.Slider S_OpacityMax;
-    public UnityEngine.UI.Slider S_ScaleMin;
-    public UnityEngine.UI.Slider S_ScaleMax;
+
     public float randomadd;
     public float wait;
     public float waitamount;
@@ -138,6 +132,7 @@ public class Triangle : MonoBehaviour
         //S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX); // adds listeners
         //S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);   // adds listeners
         //S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);   // adds listeners
+        // commented due to new global variable structure
 
         SpriteRenderer spRenda = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
         Color cola = spRenda.color; // sets colour "col" to the sprite colour
@@ -157,7 +152,7 @@ void Update()
         {
             if (trivars.rotation == "up")
             {
-                transform.position += Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                transform.position += Vector3.up * Time.deltaTime * FinalSpeed * (trivars.songvol); //Moves up at speed of FinalSpeed
                 if (transform.position.y >= 20)
                 {
                     Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
@@ -165,7 +160,7 @@ void Update()
             }
             if (trivars.rotation == "down")
             {
-                transform.position -= Vector3.up * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                transform.position -= Vector3.up * Time.deltaTime * FinalSpeed * (trivars.songvol); //Moves up at speed of FinalSpeed
                 if (transform.position.y <= -20)
                 {
                     Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
@@ -173,7 +168,7 @@ void Update()
             }
             if (trivars.rotation == "right")
             {
-                transform.position += Vector3.right * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                transform.position += Vector3.right * Time.deltaTime * FinalSpeed * (trivars.songvol); //Moves up at speed of FinalSpeed
                 if (transform.position.x >= 20)
                 {
                     Destroy(gameObject); //Destroys the gameobject if it gets too high to stop lag
@@ -181,7 +176,7 @@ void Update()
             }
             if (trivars.rotation == "left")
             {
-                transform.position += Vector3.left * Time.deltaTime * FinalSpeed; //Moves up at speed of FinalSpeed
+                transform.position += Vector3.left * Time.deltaTime * FinalSpeed * (trivars.songvol); //Moves up at speed of FinalSpeed
                 if (transform.position.x <= -20)
                 {
                     Destroy(gameObject); //Destroys the gameobject if it gets too far left to stop lag
