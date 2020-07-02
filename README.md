@@ -6,11 +6,6 @@ osu!trigen is used for a plethora of things, from showing animated triangles in 
 
 osu!trigen is under the MIT licence. as you can see in the licence page.
 
-### Find the latest releases [here!](https://github.com/eclipsedteam/osu-trigen/releases/latest)
-
-### Find the website [here!](https://eclipsed.hubza.co.uk/programs/osutrigen)
+### Find the latest releases [here!](https://github.com/hubza/osu-trigen/releases/latest)
 
 This was created using the Unity version 2019.3.0f6m but can be downgraded, or upgraded to later versions in a small range. We'll soon move to the latest release version of Unity.
-
-![Footer](https://i.imgur.com/JH4YQYO.png)
-Contact: hubz@hubza.co.uk
