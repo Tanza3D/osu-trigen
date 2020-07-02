@@ -29,12 +29,12 @@ public class infosocial : MonoBehaviour
 
     public void tclick()
     {
-        Application.OpenURL("https://twitter.com/eclipsed_team");
+        Application.OpenURL("https://twitter.com/hubziii");
     }
 
     public void gclick()
     {
-        Application.OpenURL("https://github.com/eclipsedteam/");
+        Application.OpenURL("https://github.com/hubza/");
     }
 
     public void msclick()

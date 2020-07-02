@@ -39,7 +39,7 @@ public class PopupControl : MonoBehaviour
     }
     public void reportpress()
     {
-        Application.OpenURL("https://github.com/eclipsedteam/osu-trigen/issues/new");
+        Application.OpenURL("https://github.com/hubza/osu-trigen/issues/new");
     }
     public void credpress()
     {
@@ -73,7 +73,7 @@ public class PopupControl : MonoBehaviour
 
     public void webpress()
     {
-        Application.OpenURL("https://eclipsed.hubza.co.uk/programs/osutrigen");
+        Application.OpenURL("https://www.hubza.co.uk");
     }
 
     // Update is called once per frame
