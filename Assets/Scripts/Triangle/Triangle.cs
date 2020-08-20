@@ -8,8 +8,6 @@ using UnityEngine;
 public class Triangle : MonoBehaviour
 {
     // Set the variables!
-    
-    AudioSource m_MyAudioSource;
     public GameObject TriPrefab;
     public GameObject Savedialog;
     public float YSpeedMin;
@@ -40,9 +38,11 @@ public class Triangle : MonoBehaviour
     public GameObject selectionbox;
 
     public string hexcodetext;
-    Collider m_Collider;
 
-    // ET TRIGEN TRIANGLE V3
+
+    public SpriteRenderer sr;
+
+    // TRIGEN TRIANGLE V3
 
     public static byte[] ConvertHexStringToByteArray(string hexString)
     {
@@ -63,28 +63,27 @@ public class Triangle : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<SpriteRenderer>().sprite = trianglespr; // gets the spriterenderer again for the third time
+        sr = this.GetComponent<SpriteRenderer>();
+        sr.sprite = trianglespr; // gets the spriterenderer again for the third time
     }
 
     public void Init()
     {
         byte[] colors = ConvertHexStringToByteArray("FFAB02"); //converts hex to rgb
         randomadd = UnityEngine.Random.Range(trivars.CVRem, trivars.CVAdd); // sets randomadd to add to value in updatecolor()
-        
-        m_Collider = GetComponent<Collider>(); // set collider
+
         clicked = 0; // set clicked to 0
         waitamount = 0; // sets waitamount to 0
         wait = 0; // sets wait to 0 
-        m_MyAudioSource = GetComponent<AudioSource>(); // adds audiosource for osumode
         YSpeedMin  =  trivars.speed;  //more slider stuff
         OpacityMin =  trivars.opacity; //more slider stuff
         ScaleMin   =  trivars.smin;   //more slider stuff
         ScaleMax   =  trivars.smax;   //more slider stuff
-        SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>(); //Sets the spriterendererr spRend to the SpriteRenderer component.
-        Color col = spRend.color; //Sets the colour "col" to spRend.color which we set just abov ethis
+       
+        Color col = sr.color; //Sets the colour "col" to spRend.color which we set just abov ethis
         FinalOpacity = OpacityMin; // Sets FinalOpacity to the minimum opacity.
         col.a = FinalOpacity; // Sets col.a (colour alpha) to the FinalOpacity 
-        spRend.color = col; // Sets spRend colour to col, while your at it why not paint yourself invisible
+        sr.color = col; // Sets spRend colour to col, while your at it why not paint yourself invisible
    
         FinalScale = UnityEngine.Random.Range(ScaleMin, ScaleMax); //Sets FinalScale to a random number between ScaleMin and ScaleMax
         FinalSpeed = UnityEngine.Random.Range(YSpeedMin, YSpeedMax); //Sets FinalSpeed to a random number between YSpeedMin and YSpeedMax
@@ -122,28 +121,9 @@ public class Triangle : MonoBehaviour
             FinalSpeed = 0.2f; //makes speed high enough to move the triangle at an acceptable speed
         }
         updatecolor(); // run updatecolor to update the triangle colour at init
-        // Examples
-        //
-        // If a triangle was the size of two, and the speed was set to 8, the speed would end out as 4.
-        // Meanwhile if another triangle was set to the size of 0.2, same speed, it'd end out as 7.6
-        //S_YSpeedMin.onValueChanged.AddListener(SET_S_YSMIN); // adds listeners
-        //S_YSpeedMax.onValueChanged.AddListener(SET_S_YSMAX); // adds listeners
-        //S_OpacityMin.onValueChanged.AddListener(SET_S_OMIN); // adds listeners
-        //S_OpacityMax.onValueChanged.AddListener(SET_S_OMAX); // adds listeners
-        //S_ScaleMin.onValueChanged.AddListener(SET_S_SMIN);   // adds listeners
-        //S_ScaleMax.onValueChanged.AddListener(SET_S_SMAX);   // adds listeners
-        // commented due to new global variable structure
-
-        SpriteRenderer spRenda = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
-        Color cola = spRenda.color; // sets colour "col" to the sprite colour
-        cola.a = 0f; // removes 0.1 from alpha
-        spRenda.color = cola; // set sprend to col
     }
 
-    
-
-
-void Update()
+    void Update()
     {
         updatecolor();
         //hexcodetext = hexcode.text;
@@ -183,49 +163,6 @@ void Update()
                 }
             }
         }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                //SpriteRenderer spRend = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
-                //Color col = spRend.color; // sets colour "col" to the sprite colour
-                //col.a = 1f; // removes 0.1 from alpha
-                //spRend.color = col; // set sprend to col
-                
-            }
-        }
-
-            
-  
-
-
-        
-       
-
-        
-
-
-
-        if (osumodecontroller.omode == 1)
-        {
-            GetComponent<SpriteRenderer>().sprite = hitcircle; // gets spriterenderer and sets it to a hitcircle
-            print(osumodecontroller.omode); // we off
-            GetComponent<Renderer>().material.color = UnityEngine.Random.ColorHSV(1f, 1f, 0f, 0f, 1f, 1f); // no clue
-        }
-        else
-        {
-            //GetComponent<SpriteRenderer>().sprite = trianglespr; (commented out & moved cause it overrides replacement)
-
-        }
-        if(clicked == 1)
-        {
-            SpriteRenderer spRend = transform.GetComponent<SpriteRenderer>(); // gets sprite renderer
-            Color col = spRend.color; // sets colour "col" to the sprite colour
-            col.a -= 0.1f; // removes 0.1 from alpha
-            spRend.color = col; // set sprend to col
-            transform.localScale += new Vector3(1.0f, 1.0f, 1.0f) * Time.deltaTime / 2; // moves somewhere, where i dont know, i forgot
-        }
-        
     }
     void updatecolor()
     {
@@ -256,65 +193,5 @@ void Update()
         Color c2 = Color.HSVToRGB(h, s, v); // converts back to RGB
         Color32 finalColor = new Color32((byte)(c2.r * 255), (byte)(c2.g * 255), (byte)(c2.b * 255), 255); // sets finalcolor to c2.r, c2.g, and c2.b timsed by 255
         GetComponent<Renderer>().material.color = finalColor; // sets triangle colour to finalcolor
-    }
-        // all of this stuff just sets the variables to the slider variables
-
-    void SET_S_YSMIN(float value)
-    {
-        
-        YSpeedMin = value;
-    }
-    void SET_S_YSMAX(float value)
-    {
-        
-        YSpeedMax = value;
-    }
-    void SET_S_OMIN(float value)
-    {
-        
-        OpacityMin = value;
-    }
-    void SET_S_OMAX(float value)
-    {
-        
-        OpacityMax = value;
-    }
-    void SET_S_SMIN(float value)
-    {
-        
-        ScaleMin = value;
-    }
-    void SET_S_SMAX(float value)
-    {
-        
-        ScaleMax = value;
-    }
-
-
-   
-    void OnMouseDown()
-    {
-        Debug.Log("me was clicc");
-
-        if(trivars.tripaused = true)
-        {
-            //SpriteRenderer spRend = selectionbox.GetComponent<SpriteRenderer>(); // gets sprite renderer
-            //Color col = spRend.color; // sets colour "col" to the sprite colour
-            //col.a = 1f; // removes 0.1 from alpha
-            //spRend.color = col; // set sprend to col
-        }
-
-        if (osumodecontroller.omode == 1) // checks if the osumode is set to 1
-        {
-            if (clicked == 0) // if clicked is set to... 0?
-            {
-                Debug.Log("Hit"); // tells me i hit something
-                m_MyAudioSource.Play(); // plays hitcircle
-                Destroy(gameObject, 1); // destroys hitcircle
-                clicked = 1; // sets clicked to 1, now its clicked?
-                m_Collider.enabled = false; // rip the collider
-            }
-        }
-        
     }
 }

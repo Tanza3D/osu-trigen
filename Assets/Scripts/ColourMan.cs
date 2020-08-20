@@ -261,8 +261,6 @@ public class ColourMan : MonoBehaviour
     }
     void Update()
     {
-        
-
         accentr =  sld_accentr  .value;
         pancolr =  sld_pancolr  .value;
         textcolr = sld_textcolr .value;
@@ -366,7 +364,6 @@ public class ColourMan : MonoBehaviour
  
     public void SavePressed()
     {
-
         // sets string "fileoutput" to all the variablenames and the variables themselves
         string fileOutput
             //sld_accentr.value

@@ -9,6 +9,8 @@ using UnityEditor;
 using SFB;
 using System.IO;
 
+// this script simply spawns the triangles, the triangles set their own colour and move themselves.
+
 public class TriangleSpawner : MonoBehaviour
 {
 
@@ -17,34 +19,22 @@ public class TriangleSpawner : MonoBehaviour
     public float SpawnSpeedFinal;
     public Text hex;
     public GameObject Savedialog;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        SpawnSpeed = trivars.spawnspeed;
-        SpawnSpeedFinal = Random.Range(0, SpawnSpeed);
-        if (SpawnSpeedFinal > 5)
+        SpawnSpeed = trivars.spawnspeed; // gets spawnspeed from slider 
+        SpawnSpeedFinal = Random.Range(0, SpawnSpeed); // grabs a random range from 0 to the spawnspeed
+        if (SpawnSpeedFinal > 5 && trivars.tripaused == false) // as long as the grabbed range is above 5, and the triangles aren't paused...
         {
-
+            // spawn a triangle
             GameObject go = Instantiate(triangle, new Vector3(0, 0, 0), Quaternion.identity);
             Triangle tri = go.GetComponent<Triangle>();
-            tri.Init();
+            tri.Init(); // initiate triangle
         }
 
-        osumodecontroller.hex = hex.GetComponent<Text>().text;
-        osumodecontroller.hex = osumodecontroller.hex.Replace("#", "");
-        //Removed Hex Length Fallback (Issue Fixed)
-        Debug.Log(osumodecontroller.hex);
+        osumodecontroller.hex = hex.GetComponent<Text>().text; // grab text
+        osumodecontroller.hex = osumodecontroller.hex.Replace("#", ""); // remove the #
+        Debug.Log(osumodecontroller.hex); // log it, no clue why we do this lol
     }
-
-   // public void SetVariables(float LoadedSS, float LoadedYSpeedMin, float LoadedYSpeedMax, float LoadedOMin, float LoadedOMax, float LoadedSMin, float LoadedSMax)
-   // {
-   //     LoadedSS = SpawnSpeed;
-   //     LoadedYSpeedMin = tri.YSpeedMin;
-   // }
 }

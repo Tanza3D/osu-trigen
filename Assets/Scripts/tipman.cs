@@ -17,22 +17,14 @@ public class tipman : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
         StartCoroutine(playAnimation());
         closebutt.onClick.AddListener(hideslide);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-    }
     void hideslide()
     {
         animator.Play();
         buttpressed = true;
-
     }
     public IEnumerator playAnimation()
     {

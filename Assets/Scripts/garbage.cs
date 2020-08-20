@@ -13,7 +13,7 @@ public class garbage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Resources.UnloadUnusedAssets();
-        System.GC.Collect();
+        //Resources.UnloadUnusedAssets();
+        //System.GC.Collect();
     }
 }

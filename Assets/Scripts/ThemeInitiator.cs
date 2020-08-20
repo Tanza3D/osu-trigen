@@ -18,8 +18,6 @@ public class ThemeInitiator : MonoBehaviour
     public ColourMan colourman;
     public GameObject colcontrol;
     public Button open;
-    // Start is called before the first frame update
-
 
     public string GetHtmlFromUri(string resource)
     {
@@ -34,9 +32,6 @@ public class ThemeInitiator : MonoBehaviour
                 {
                     using (StreamReader reader = new StreamReader(resp.GetResponseStream()))
                     {
-                        //We are limiting the array to 80 so we don't have
-                        //to parse the entire html document feel free to 
-                        //adjust (probably stay under 300)
                         char[] cs = new char[80];
                         reader.Read(cs, 0, cs.Length);
                         foreach (char ch in cs)
@@ -137,9 +132,6 @@ public class ThemeInitiator : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
-        
-
         if (www.isDone && !isUnzipped)
         {
             string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
