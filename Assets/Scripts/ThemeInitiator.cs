@@ -132,63 +132,70 @@ public class ThemeInitiator : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (www.isDone && !isUnzipped)
+        try
         {
-            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-    
-            Directory.CreateDirectory(appdata + "\\trigen\\themes");
-    
-            byte[] data = www.bytes;
-    
-            string docPath = appdata + "\\trigen\\themes\\test-themes.zip";
-            docPath = appdata + "\\trigen\\themes\\test-themes.zip";
-            Debug.Log("docPath=" + docPath);
-            System.IO.File.WriteAllBytes(docPath, data);
-    
-            using (ZipInputStream s = new ZipInputStream(File.OpenRead(docPath)))
+            if (www.isDone && !isUnzipped)
             {
-                ZipEntry theEntry;
-                while ((theEntry = s.GetNextEntry()) != null)
+                string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+                Directory.CreateDirectory(appdata + "\\trigen\\themes");
+
+                byte[] data = www.bytes;
+
+                string docPath = appdata + "\\trigen\\themes\\test-themes.zip";
+                docPath = appdata + "\\trigen\\themes\\test-themes.zip";
+                Debug.Log("docPath=" + docPath);
+                System.IO.File.WriteAllBytes(docPath, data);
+
+                using (ZipInputStream s = new ZipInputStream(File.OpenRead(docPath)))
                 {
-                    Console.WriteLine(theEntry.Name);
-    
-                    string directoryName = appdata + "\\trigen\\themes\\" + Path.GetDirectoryName(theEntry.Name);
-                    string fileName = appdata + "\\trigen\\themes\\" + Path.GetFileName(theEntry.Name);
-    
-                    // create directory
-                    if (directoryName.Length > 0)
+                    ZipEntry theEntry;
+                    while ((theEntry = s.GetNextEntry()) != null)
                     {
-                        Directory.CreateDirectory(directoryName);
-                    }
-    
-                    if (fileName != String.Empty)
-                    {
-                        string filename = docPath.Substring(0, docPath.Length - 8);
-                        filename = theEntry.Name;
-                        Debug.Log("theEntry.Name: " + theEntry.Name);
-                        Debug.Log("Unzipping: " + filename);
-                        using (FileStream streamWriter = File.Create(fileName))
+                        Console.WriteLine(theEntry.Name);
+
+                        string directoryName = appdata + "\\trigen\\themes\\" + Path.GetDirectoryName(theEntry.Name);
+                        string fileName = appdata + "\\trigen\\themes\\" + Path.GetFileName(theEntry.Name);
+
+                        // create directory
+                        if (directoryName.Length > 0)
                         {
-                            int size = 2048;
-                            byte[] fdata = new byte[2048];
-                            while (true)
+                            Directory.CreateDirectory(directoryName);
+                        }
+
+                        if (fileName != String.Empty)
+                        {
+                            string filename = docPath.Substring(0, docPath.Length - 8);
+                            filename = theEntry.Name;
+                            Debug.Log("theEntry.Name: " + theEntry.Name);
+                            Debug.Log("Unzipping: " + filename);
+                            using (FileStream streamWriter = File.Create(fileName))
                             {
-                                size = s.Read(fdata, 0, fdata.Length);
-                                if (size > 0)
+                                int size = 2048;
+                                byte[] fdata = new byte[2048];
+                                while (true)
                                 {
-                                    streamWriter.Write(fdata, 0, size);
-                                }
-                                else
-                                {
-                                    break;
+                                    size = s.Read(fdata, 0, fdata.Length);
+                                    if (size > 0)
+                                    {
+                                        streamWriter.Write(fdata, 0, size);
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
+                    isUnzipped = true;
+                    addfilestoarray();
                 }
-                isUnzipped = true;
-                addfilestoarray();
             }
+        }
+        catch
+        {
+
         }
     }
 

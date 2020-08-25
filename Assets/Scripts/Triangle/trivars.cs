@@ -9,7 +9,7 @@ public static class trivars
     public static float opacity = 0f    ;
     public static float smin = 0f;
     public static float smax = 0f;
-    public static string hex = "#000000";
+    public static string hex = "000000";
     public static string lang = "EN";
     public static string pngpath = "PNG NOT SET";
     public static string backgroundpath = "BACKGROUND NOT SET";

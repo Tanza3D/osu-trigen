@@ -15,6 +15,11 @@ public class Fullscreenman : MonoBehaviour
             ToggleValueChanged(onofftoggle.GetComponent<Toggle>());
         });
 
+        int minWidth = 960;
+        int minHeight = 540;
+
+        MinimumWindowSize.Set(minWidth, minHeight);
+
     }
 
 
@@ -37,5 +42,10 @@ public class Fullscreenman : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnApplicationQuit()
+    {
+        MinimumWindowSize.Reset();
     }
 }

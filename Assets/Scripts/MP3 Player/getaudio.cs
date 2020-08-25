@@ -12,8 +12,8 @@ public class getaudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = playbutt.GetComponent<Button>();
-        btn.onClick.AddListener(playbuttpress);
+        //Button btn = playbutt.GetComponent<Button>();
+        //btn.onClick.AddListener(playbuttpress);
        
     }
 

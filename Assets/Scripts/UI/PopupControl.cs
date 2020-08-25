@@ -20,8 +20,8 @@ public class PopupControl : MonoBehaviour
         //Button credclick = creditsbutt.GetComponent<Button>();
         //credclick.onClick.AddListener(credpress);
 
-        Button closeclick = popupclose.GetComponent<Button>();
-        closeclick.onClick.AddListener(closepress);
+        //Button closeclick = popupclose.GetComponent<Button>();
+        //closeclick.onClick.AddListener(closepress);
 
         Button privacyclick = privacybutt.GetComponent<Button>();
         privacyclick.onClick.AddListener(privacypress);
@@ -68,7 +68,7 @@ public class PopupControl : MonoBehaviour
 
     public void sourcepress()
     {
-        Application.OpenURL("https://github.com/eclipsedteam/osu-trigen/");
+        Application.OpenURL("https://github.com/hubza/osu-trigen/");
     }
 
     public void webpress()

@@ -7,11 +7,10 @@ using UnityEngine.UI;
 
 using NAudio;
 using NAudio.Wave;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
-
-
     public AudioSource audioSource;
     public AudioSource _source; //Audio source refernce
     private string _audioLoc; //Audio file location string
@@ -24,9 +23,6 @@ public class AudioManager : MonoBehaviour
 
     private float clipLoudness;
     private float[] clipSampleData;
-
-
-
 
     public void Start()
     {
@@ -108,15 +104,31 @@ public class AudioManager : MonoBehaviour
         if (currentUpdateTime >= updateStep)
         {
             currentUpdateTime = 0f;
-            audioSource.clip.GetData(clipSampleData, audioSource.timeSamples); //I read 1024 samples, which is about 80 ms on a 44khz stereo clip, beginning at the current sample position of the clip.
-            clipLoudness = 0f;
-            foreach (var sample in clipSampleData)
+            try
             {
-                clipLoudness += Mathf.Abs(sample);
+                audioSource.clip.GetData(clipSampleData, audioSource.timeSamples); //I read 1024 samples, which is about 80 ms on a 44khz stereo clip, beginning at the current sample position of the clip.
             }
-            clipLoudness /= sampleDataLength; //clipLoudness is what you are looking for
-            trivars.songvol = 1.2f * (1 + clipLoudness * 5);
-            Debug.Log("aftercalc: " + trivars.songvol);
+            catch(Exception e)
+            {
+                Debug.Log("Try Failed: " + e);
+            }
+
+            clipLoudness = 0f;
+
+            try
+            {
+                foreach (var sample in clipSampleData)
+                {
+                    clipLoudness += Mathf.Abs(sample);
+                }
+                clipLoudness /= sampleDataLength; //clipLoudness is what you are looking for
+                trivars.songvol = 1.2f * (1 + clipLoudness * 5);
+                Debug.Log("aftercalc: " + trivars.songvol);
+            }
+            catch
+            {
+
+            }
 
         }
 

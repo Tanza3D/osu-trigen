@@ -88,8 +88,8 @@ public class UIHideScript : MonoBehaviour
         trivars.rotation = "up";
         foreach (GameObject aa in tris)
         {
-            hextext.text = "#ffffff";
-            bghex.text = "#ffffff";
+            hextext.text = "ffffff";
+            bghex.text = "ffffff";
 
             seperate.isOn = false;
             
