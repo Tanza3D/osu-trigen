@@ -56,7 +56,14 @@ public class setvar : MonoBehaviour
         trivars.opacity = S_OpacityMin.value;
         trivars.smin = S_ScaleMin.value;
         trivars.smax = S_ScaleMax.value;
-        trivars.hex = hex.text;
+        if (trivars.classic == false)
+        {
+            trivars.hex = hex.text;
+        }
+        else
+        {
+            trivars.hex = "#072552";
+        }
 
         trivars.CVAdd = S_CVAdd.value;
         trivars.CVRem = -S_CVRem.value;

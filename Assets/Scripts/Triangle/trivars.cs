@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class trivars
+﻿public static class trivars
 {
     public static float spawnspeed = 0f;
     public static float speed = 0f;
@@ -36,4 +32,6 @@ public static class trivars
     public static float songvol = 1;
 
     public static string rotation = "up";
+
+    public static bool classic = false;
 }
