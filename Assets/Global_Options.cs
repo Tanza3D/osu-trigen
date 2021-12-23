@@ -31,3 +31,8 @@ public class Global_Options
         }
     }
 }
+
+public class Global
+{
+    public static Vector2 topRight;
+}

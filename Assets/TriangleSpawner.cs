@@ -24,5 +24,6 @@ public class TriangleSpawner : MonoBehaviour
             triangles.Remove(tToDest);
             Destroy(tToDest.gameObject);
         }
+        Global.topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 }

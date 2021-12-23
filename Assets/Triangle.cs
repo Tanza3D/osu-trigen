@@ -23,7 +23,7 @@ public class Triangle : MonoBehaviour
 
         if (atBottom == false)
         {
-            Vector2 topLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+            Vector2 topLeft = Global.topRight; // we only use the Y of this so we can reuse Global.topRight instead
             Vector2 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
             Debug.Log("top left is " + topLeft);
             Debug.Log("bottom left is " + bottomLeft);
@@ -48,8 +48,9 @@ public class Triangle : MonoBehaviour
 
         float finalX = XPosition;
         //Vector2 topLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
-        Vector2 topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        
+        Vector2 topRight = Global.topRight;
+
+
         finalX *= topRight.x;
         
         float finalScale = ExtensionMethods.Remap(Scale, 0, 1, Global_Options.Triangle.MinScale, Global_Options.Triangle.MaxScale)/10;
