@@ -35,7 +35,7 @@ public class Triangle : MonoBehaviour
             Vector2 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
             transform.position = new Vector3(0, bottomLeft.y - 3, 0);
         }
-        renderer.color = new Color(0, 0, 0, 0);
+        renderer.color = new Color(0, 0, 0, 0); // hide until the first update loop is completed, else there'll be flashes in the middle whenever we respawn
 
         colourVariance = Random.Range(-1f, 1f);
     }
@@ -51,8 +51,7 @@ public class Triangle : MonoBehaviour
         Vector2 topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         
         finalX *= topRight.x;
-        transform.position = new Vector3(finalX, transform.position.y + upwards, 0);
-
+        
         float finalScale = ExtensionMethods.Remap(Scale, 0, 1, Global_Options.Triangle.MinScale, Global_Options.Triangle.MaxScale)/10;
         transform.localScale = new Vector3(finalScale, finalScale, finalScale);
 
@@ -66,7 +65,7 @@ public class Triangle : MonoBehaviour
 
         //renderer.color = new Color(1, 1, 1, 1);
 
-
+        transform.position = new Vector3(finalX, transform.position.y + upwards, transform.localScale.x);
 
         if (transform.position.y > topRight.y + (transform.localScale.x*2.1f))
         {
