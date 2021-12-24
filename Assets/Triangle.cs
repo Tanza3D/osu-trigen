@@ -12,7 +12,7 @@ public class Triangle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Respawn();
+        Respawn(true);
     }
 
     void Respawn(bool atBottom = false)
@@ -43,9 +43,6 @@ public class Triangle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float multiplier = (Global_Options.Triangle.MaxScale - (transform.localScale.x*2)) * Global_Options.Triangle.SpeedMultiplier;
-        float upwards = ((Global_Options.Triangle.Speed / 300) * multiplier) * Time.deltaTime;
-
         float finalX = XPosition;
         //Vector2 topLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         Vector2 topRight = Global.topRight;
@@ -55,6 +52,9 @@ public class Triangle : MonoBehaviour
         
         float finalScale = ExtensionMethods.Remap(Scale, 0, 1, Global_Options.Triangle.MinScale, Global_Options.Triangle.MaxScale)/10;
         transform.localScale = new Vector3(finalScale, finalScale, finalScale);
+
+        float multiplier = (Global_Options.Triangle.MaxScale - (finalScale*8)) * Global_Options.Triangle.SpeedMultiplier;
+        float upwards = ((Global_Options.Triangle.Speed / 300) * multiplier) * Time.deltaTime;
 
         float hue;
         float saturation;
