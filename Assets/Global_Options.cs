@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Global_Options
+namespace Global_Options
 {
-    public class Spawner
+    // in these scripts we have functions for each change of options. for now these may seem useless but in the future we might need to call more things when these are changed
+    // such as calling off to every spawned triangle to change their colour, instead of them fetching it from this script every frame (which is quite slow)
+
+    public static class Spawner
     {
         public static float Amount = 200;
+        public static void ChangeAmount(float amount)
+        {
+            Amount = amount;
+        }
     }
-    public class Triangle
+    public static class Triangle
     {
         public static float Speed = 2;
         public static float MinScale = 1;
@@ -28,11 +35,39 @@ public class Global_Options
             public static float ColourVarianceUp = 0.1f;
             public static float ColourVarianceDown = -0.1f;
             public static Color TriangleColour = new Color(1, 1, 1, 1);
+
+            public static void ChangeTriangleColour(Color newColor)
+            {
+                TriangleColour = newColor;
+            }
+
+            public static void ChangeColourVariance(float up, float down)
+            {
+                ColourVarianceUp = up;
+                ColourVarianceDown = down;
+            }
+        }
+
+        public static void ChangeSpeed(float speed)
+        {
+            Speed = speed;
+        }
+        public static void ChangeMinScale(float minScale)
+        {
+            MinScale = minScale;
+        }
+        public static void ChangeMaxScale(float maxScale)
+        {
+            MaxScale = maxScale;
+        }
+        public static void ChangeSpeedMultiplier(float speedMultiplier)
+        {
+            SpeedMultiplier = speedMultiplier;
         }
     }
 }
 
-public class Global
+public static class Global
 {
     public static Vector2 topRight;
 }
