@@ -8,5 +8,6 @@ coming soon :)
 - get parity with osu!trigen v1.5 excluding some areas [such as custom themes or triangle direction]
 - save custom triangle sprites as base64 inside config (instead of just a path)
 - add MP3 & WAV support (instead of just WAV)
+
 triangle direction will definitely come back in the future, just not that important to me[hubz] right now
 # [figma document](https://www.figma.com/file/uTZ84ENGYbJ7XVGXN22AVR/osu!trigen-Rewrite?node-id=1%3A2)
