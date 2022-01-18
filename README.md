@@ -11,3 +11,11 @@ coming soon :)
 
 triangle direction will definitely come back in the future, just not that important to me[hubz] right now
 # [figma document](https://www.figma.com/file/uTZ84ENGYbJ7XVGXN22AVR/osu!trigen-Rewrite?node-id=1%3A2)
+
+# Licence, Usage & Usages
+
+osu!trigen is licensed under MIT. For more infomation see the LICENCE file
+
+You are permitted to use osu!trigen literally anywhere. Have fun! ( credit would be nice, though not requred :) )
+
+osu!trigen uses [HSV-Color-Picker-Unity by @judah4](https://github.com/judah4/HSV-Color-Picker-Unity). similarly licensed under MIT.
