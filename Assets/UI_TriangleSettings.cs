@@ -6,28 +6,43 @@ using Global_Options;
 
 public class UI_TriangleSettings : MonoBehaviour
 {
-    public Slider Speed;
-    public Slider MinScale;
-    public Slider MaxScale;
-    public Slider SpeedMultiplier;
+    [SerializeField]
+    [System.Serializable]
+    public class SliderInputCombo
+    {
+        public Slider Slider;
+        public InputField Field;
+
+        public SliderInputCombo(Slider Slider, InputField Field)
+        {
+            this.Slider = Slider;
+            this.Field = Field;
+        }
+    }
+
+    [SerializeField]
+    public SliderInputCombo Speed;
+    public SliderInputCombo MinScale;
+    public SliderInputCombo MaxScale;
+    public SliderInputCombo SpeedMultiplier;
 
     void Start()
     {
-        Speed.onValueChanged.AddListener(delegate
+        Speed.Slider.onValueChanged.AddListener(delegate
         {
-            Global_Options.Triangle.ChangeSpeed(Speed.value);
+            Global_Options.Triangle.ChangeSpeed(Speed.Slider.value);
         });
-        MinScale.onValueChanged.AddListener(delegate
+        MinScale.Slider.onValueChanged.AddListener(delegate
         {
-            Global_Options.Triangle.ChangeMinScale(MinScale.value);
+            Global_Options.Triangle.ChangeMinScale(MinScale.Slider.value);
         });
-        MaxScale.onValueChanged.AddListener(delegate
+        MaxScale.Slider.onValueChanged.AddListener(delegate
         {
-            Global_Options.Triangle.ChangeMaxScale(MaxScale.value);
+            Global_Options.Triangle.ChangeMaxScale(MaxScale.Slider.value);
         });
-        SpeedMultiplier.onValueChanged.AddListener(delegate
+        SpeedMultiplier.Slider.onValueChanged.AddListener(delegate
         {
-            Global_Options.Triangle.ChangeSpeedMultiplier(SpeedMultiplier.value);
+            Global_Options.Triangle.ChangeSpeedMultiplier(SpeedMultiplier.Slider.value);
         });
     }
 }
